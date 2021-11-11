@@ -35,7 +35,7 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
       console.log({ email, password, mobile, name, role });
       const response = signIn
         ? await Api.signIn({ email, password })
-        : await Api.signUp({ email, password, mobile, name, role });
+        : await Api.signUp({ email, password, mobile, name, role, vaccinationStatus });
       toast.update(toastElement, {
         render: "Logged In Successfully",
         type: "success",
