@@ -20,8 +20,8 @@ const Api = {
   signIn: ({ email, password }) => {
     return axios.post("/auth/signin", { email, password });
   },
-  signUp: ({ email, password, mobile, name, role }) => {
-    return axios.post("/auth/signup", { email, password, mobile, name, role });
+  signUp: ({ email, password, mobile, name, role, vaccinationStatus }) => {
+    return axios.post("/auth/signup", { email, password, mobile, name, role, vaccinationStatus });
   },
 };
 
