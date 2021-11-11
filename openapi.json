@@ -1,0 +1,627 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Microsoft Engage Backend",
+    "description": "This is Microsoft Enagge Backend server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "archeelparekh11@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "externalDocs": {
+    "description": "Find out more about me",
+    "url": "https://archeel.ml"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Login and signup"
+    },
+    {
+      "name": "Teacher",
+      "description": "All routes and operation for a teacher"
+    },
+    {
+      "name": "Student",
+      "description": "All routes and operation for a student"
+    },
+    {
+      "name": "User",
+      "description": "All routes and operations for a user"
+    }
+  ],
+  "paths": {
+    "/auth/signin": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Create user",
+        "description": "Signin for users.",
+        "operationId": "signin",
+        "requestBody": {
+          "description": "Login Object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginObject"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "successful operation",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/auth/signup": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Create user",
+        "description": "Creates a user account and teacher/student account according to role selected.",
+        "operationId": "createUser",
+        "requestBody": {
+          "description": "User SignUp Object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {}
+          }
+        },
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/teacher/course": {
+      "get": {
+        "tags": ["Teacher"],
+        "summary": "Get Courses",
+        "description": "To get all the courses created by the authorised teacher.",
+        "operationId": "getTeachersCourses",
+        "responses": {
+          "200": {
+            "description": "Get all courses by teacher in response",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      },
+      "post": {
+        "tags": ["Teacher"],
+        "summary": "Create Course",
+        "description": "To create a new course by the authorised teacher.",
+        "operationId": "createTeachersCourse",
+        "requestBody": {
+          "description": "Course Object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Course"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Course created successfully",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/teacher/course/{courseId}": {
+      "get": {
+        "tags": ["Teacher"],
+        "summary": "Get Course",
+        "description": "To get a particular course by the authorised teacher.",
+        "operationId": "getTeachersCourse",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get a particular course by teacher",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      },
+      "delete": {
+        "tags": ["Teacher"],
+        "summary": "Delete Course",
+        "description": "To delete a particular by the authorised teacher.",
+        "operationId": "deleteTeachersCourse",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Course deleted successfully",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      },
+      "put": {
+        "tags": ["Teacher"],
+        "summary": "Update Course",
+        "description": "To update course by the authorised teacher.",
+        "operationId": "updateTeachersCourse",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Course Object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Course"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Course updated successfully",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/teacher/course/{courseId}/lecture": {
+      "post": {
+        "tags": ["Teacher"],
+        "summary": "Create Lecture",
+        "description": "To create a lecture for a course by the authorised teacher.",
+        "operationId": "createTeachersLecture",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Lecture Object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Lecture"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Lecture created successfully",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/teacher/schedule": {
+      "get": {
+        "tags": ["Teacher"],
+        "summary": "Get schedule for a particular day",
+        "description": "To get schedule of an authorised teacher for a particular date.",
+        "operationId": "getTeachersSchedule",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Date of which we require schedule",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched lectures for the date",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/student/course": {
+      "get": {
+        "tags": ["Student"],
+        "summary": "Get Courses",
+        "description": "To get all the courses enrolled by the authorised student.",
+        "operationId": "getStudentsCourses",
+        "responses": {
+          "200": {
+            "description": "Get all courses a student is enrolled in response",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/student/course/{courseId}": {
+      "get": {
+        "tags": ["Student"],
+        "summary": "Get Course",
+        "description": "To get a particular course by the authorised student.",
+        "operationId": "getStudentsCourse",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course enrolled in by student",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get a particular course in which student is enrolled",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      },
+      "post": {
+        "tags": ["Student"],
+        "summary": "Enroll In Course",
+        "description": "To enroll in a new course by the authorised Student.",
+        "operationId": "enrollStudentsCourse",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course enrolled in by student",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully enrolled in course",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      },
+      "delete": {
+        "tags": ["Student"],
+        "summary": "UnEnroll From A Course",
+        "description": "To unenroll in a course by the authorised student.",
+        "operationId": "unenrollStudentssCourse",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course enrolled in by student",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Unenrolled from course successfully",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/student/course/{courseId}/lecture/{lectureId}": {
+      "post": {
+        "tags": ["Student"],
+        "summary": "Register For Lecture",
+        "description": "To register for a offline lecture in a particular course by the authorised student.",
+        "operationId": "registerStudentsLecture",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course enrolled in by student",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lectureId",
+            "in": "path",
+            "description": "Lecture ID of the lecture student wants to register",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully registered for lecture",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/student/schedule": {
+      "get": {
+        "tags": ["Student"],
+        "summary": "Get schedule for a particular day",
+        "description": "To get schedule of an authorised student for a particular date.",
+        "operationId": "getStudentsSchedule",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Date of which we require schedule",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched lectures for the date",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/user": {
+      "put": {
+        "tags": ["User"],
+        "summary": "Update Profile",
+        "description": "To update profile details of an authorised user",
+        "operationId": "updateUsersProfile",
+        "requestBody": {
+          "description": "Profile Object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Profile"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Profile Updated Successfully",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "required": ["email", "mobile", "name", "role", "password"],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "mobile": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "vaccinationStatus": {
+            "type": "integer"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "LoginObject": {
+        "type": "object",
+        "required": ["email", "password"],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Course": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "totalCapacity":{
+            "type": "integer"
+          },
+          "offlineLectureCapacity":{
+            "type": "integer"
+          },
+          "onlineLectureLink":{
+            "type": "string"
+          }
+        }
+      },
+      "Lecture": {
+        "type": "object",
+        "properties": {
+          "startTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "vaccinationCriteria": {
+            "type": "integer"
+          },
+          "offlineLectureCapacity":{
+            "type": "integer"
+          },
+          "onlineLectureLink":{
+            "type": "string"
+          }
+        }
+      },
+      "Profile": {
+        "type": "object",
+        "properties": {
+          "vaccinationStatus": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
