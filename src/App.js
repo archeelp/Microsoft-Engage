@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import { useState, useEffect } from "react";
 import { isLoggedIn } from "./utils/token";
-import Schedule from "./pages/Student/Schedule";
+import Schedule from "./pages/Schedule";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);

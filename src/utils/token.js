@@ -8,6 +8,10 @@ export const getRole = () => {
   return getDecodedToken()?.role;
 };
 
+export const getUserId = () => {
+  return getDecodedToken()?.userId;
+};
+
 export const isLoggedIn = () => {
   if (getDecodedToken()?.exp < Date.now()) {
     return true;

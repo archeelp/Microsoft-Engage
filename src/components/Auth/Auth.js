@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import Popup from "reactjs-popup";
-import Api from "../../utils/api";
+import Api, { responseErrorHandler } from "../../utils/Api/Api";
 import { toast } from "react-toastify";
 import validator from "validator";
 import "./Auth.scoped.css";
@@ -36,8 +36,8 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
     );
     try {
       const response = signIn
-        ? await Api.signIn({ email, password })
-        : await Api.signUp({
+        ? await Api.auth.signIn({ email, password })
+        : await Api.auth.signUp({
             email,
             password,
             mobile,
@@ -58,21 +58,7 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
       setIsAuthenticated(true);
       return close();
     } catch (error) {
-      if (!error.response) {
-        toast.update(toastElement, {
-          render: "Network Error",
-          type: "error",
-          isLoading: false,
-          autoClose: true,
-        });
-      } else {
-        toast.update(toastElement, {
-          render: error.response.data.error.message,
-          type: "error",
-          isLoading: false,
-          autoClose: true,
-        });
-      }
+      responseErrorHandler(error, toastElement);
     }
   };
 
