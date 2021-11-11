@@ -16,8 +16,8 @@
   .close {
     top: 2rem;
   }
-  .modal{
+  .modal {
     max-height: calc(100vh - 210px);
     overflow-y: auto;
-  } 
+  }
 }

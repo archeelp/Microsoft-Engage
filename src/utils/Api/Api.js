@@ -6,9 +6,9 @@ import { toast } from "react-toastify";
 
 const Api = {
   auth: AuthApi,
-  teacher:TeacherApi,
-  student:StudentApi,
-  user:UserApi
+  teacher: TeacherApi,
+  student: StudentApi,
+  user: UserApi,
 };
 
 export const responseErrorHandler = (error, toastElement) => {
@@ -22,7 +22,9 @@ export const responseErrorHandler = (error, toastElement) => {
   } else {
     console.log(error);
     toast.update(toastElement, {
-      render: error.response.data?.error?.message?error.response.data?.error?.message:"Some Error Occured",
+      render: error.response.data?.error?.message
+        ? error.response.data?.error?.message
+        : "Some Error Occured",
       type: "error",
       isLoading: false,
       autoClose: true,

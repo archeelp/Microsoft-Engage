@@ -98,7 +98,7 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
       {!signIn && (
         <div className="relative mb-4">
           <label className="leading-7 text-sm text-gray-600">Role</label>
-          <br/>
+          <br />
           <label class="inline-flex items-center">
             <input
               type="radio"
@@ -124,8 +124,10 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
       )}
       {!signIn && (
         <div className="relative mb-4">
-          <label className="leading-7 text-sm text-gray-600">Vaccination Status</label>
-          <br/>
+          <label className="leading-7 text-sm text-gray-600">
+            Vaccination Status
+          </label>
+          <br />
           <label class="inline-flex items-center">
             <input
               type="radio"

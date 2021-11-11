@@ -30,26 +30,26 @@ const scheduleDump = [
 const Schedule = () => {
   const [schedule, setSchedule] = useState([]);
 
-	const init = async () => {
-		const toastElement = toast.loading("Fetching Schedule");
+  const init = async () => {
+    const toastElement = toast.loading("Fetching Schedule");
     try {
       const response = await Api[getRole()].getSchedule();
-			const {lectures, message} = response.data;
+      const { lectures, message } = response.data;
       toast.update(toastElement, {
         render: message,
         type: "success",
         isLoading: false,
         autoClose: true,
       });
-			console.log(lectures);
+      console.log(lectures);
     } catch (error) {
       responseErrorHandler(error, toastElement);
     }
     setSchedule(scheduleDump);
-	};
+  };
 
   useEffect(() => {
-		init();
+    init();
   }, []);
 
   return (

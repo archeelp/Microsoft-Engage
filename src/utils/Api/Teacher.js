@@ -21,7 +21,7 @@ const TeacherApi = {
   },
   getSchedule: (date) => {
     return axios.get(`/teacher/schedule?date=${date}`);
-  }
-}
+  },
+};
 
 export default TeacherApi;

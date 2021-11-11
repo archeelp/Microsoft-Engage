@@ -17,8 +17,8 @@ const StudentApi = {
     return axios.post(`/student/course/${courseId}/lecture/${lectureId}`);
   },
   getSchedule: (date) => {
-    return axios.get(`/student/schedule`,{params:{date}});
-  }
-}
+    return axios.get(`/student/schedule`, { params: { date } });
+  },
+};
 
 export default StudentApi;
