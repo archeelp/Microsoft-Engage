@@ -30,14 +30,14 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
     if (password.length < 8) {
       return toast("Please Use A Password With Minimum Length 8");
     }
-    const toastElement = toast.loading("Logging You In");
+    const toastElement = toast.loading(signIn?"Logging You In":"Signing You Up");
     try {
       console.log({ email, password, mobile, name, role });
       const response = signIn
         ? await Api.signIn({ email, password })
         : await Api.signUp({ email, password, mobile, name, role, vaccinationStatus });
       toast.update(toastElement, {
-        render: "Logged In Successfully",
+        render: signIn?"Logged In Successfully":"Account Created Successfully",
         type: "success",
         isLoading: false,
         autoClose: true,
