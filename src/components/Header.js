@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import useDarkMode from "use-dark-mode";
 import Toggle from "./Toggle/Toggle";
 import Auth from "./Auth";
-import { getRole } from "../utils/token";
+// import { getRole } from "../utils/token";
 
 const Header = ({ isAuthenticated, setIsAuthenticated }) => {
   const navigate = useNavigate();
