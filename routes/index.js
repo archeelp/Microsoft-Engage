@@ -17,7 +17,17 @@ router.use("/documentation", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 router.use("/auth", authRoutes);
 
 router.use("/user", middlewares.loginRequired, userRoutes);
-router.use("/teacher", middlewares.loginRequired, middlewares.checkRoleAndId("teacher"), teacherRoutes);
-router.use("/student", middlewares.loginRequired, middlewares.checkRoleAndId("student"), studentRoutes);
+router.use(
+  "/teacher",
+  middlewares.loginRequired,
+  middlewares.checkRoleAndId("teacher"),
+  teacherRoutes
+);
+router.use(
+  "/student",
+  middlewares.loginRequired,
+  middlewares.checkRoleAndId("student"),
+  studentRoutes
+);
 
 export default router;

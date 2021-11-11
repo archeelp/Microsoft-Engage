@@ -5,14 +5,14 @@ const registerForLecture = async (req, res) => {
     const lecture = await db.Lecture.findOne({
       _id: req.params.lectureId,
       course: req.params.courseId,
-      startTime: { $gte: new Date() }
+      startTime: { $gte: new Date() },
     });
     const student = await db.User.findOne({ _id: req.decodedToken.id });
-    if(student.vaccinationStatus >= lecture.vaccinationCriteria) {
+    if (student.vaccinationStatus >= lecture.vaccinationCriteria) {
       if (lecture.registeredStudents.length < lecture.offlineLectureCapacity) {
-        if(lecture.registeredStudents.includes(req.decodedToken.id)) {
+        if (lecture.registeredStudents.includes(req.decodedToken.id)) {
           return res.status(200).json({
-            message: "You are already registered for this lecture"
+            message: "You are already registered for this lecture",
           });
         }
         lecture.registeredStudents.push(req.decodedToken.id);
@@ -20,9 +20,14 @@ const registerForLecture = async (req, res) => {
       } else {
         return res.status(400).json({ error: "Lecture is full" });
       }
-      return res.status(201).json({ message: "Registered for lecture successfully" });
+      return res
+        .status(201)
+        .json({ message: "Registered for lecture successfully" });
     } else {
-      return res.status(400).json({ error: "You are not eligible for this lecture due to vaccination criteria" });
+      return res.status(400).json({
+        error:
+          "You are not eligible for this lecture due to vaccination criteria",
+      });
     }
   } catch (error) {
     console.log(error);
@@ -32,4 +37,4 @@ const registerForLecture = async (req, res) => {
 
 export default {
   registerForLecture,
-}
+};

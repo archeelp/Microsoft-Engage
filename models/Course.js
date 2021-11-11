@@ -46,8 +46,8 @@ const CourseSchema = new mongoose.Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-      }
-    ]
+      },
+    ],
   },
   {
     timestamps: true,
@@ -55,14 +55,19 @@ const CourseSchema = new mongoose.Schema(
 );
 
 CourseSchema.pre("deleteOne", async function (next) {
-  try{
-    await Teacher.findOneAndUpdate({ _id: this.teacher}, { $pull: { courses: this._id } });
-    await Student.updateMany({ enrolledCourses: this._id }, { $pull: { courses: this._id } });
+  try {
+    await Teacher.findOneAndUpdate(
+      { _id: this.teacher },
+      { $pull: { courses: this._id } }
+    );
+    await Student.updateMany(
+      { enrolledCourses: this._id },
+      { $pull: { courses: this._id } }
+    );
   } catch (error) {
     console.log(error);
     next(error);
   }
-})
-
+});
 
 export default mongoose.model("Course", CourseSchema);

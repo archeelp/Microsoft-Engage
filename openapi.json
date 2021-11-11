@@ -574,13 +574,13 @@
           "description": {
             "type": "string"
           },
-          "totalCapacity":{
+          "totalCapacity": {
             "type": "integer"
           },
-          "offlineLectureCapacity":{
+          "offlineLectureCapacity": {
             "type": "integer"
           },
-          "onlineLectureLink":{
+          "onlineLectureLink": {
             "type": "string"
           }
         }
@@ -599,10 +599,10 @@
           "vaccinationCriteria": {
             "type": "integer"
           },
-          "offlineLectureCapacity":{
+          "offlineLectureCapacity": {
             "type": "integer"
           },
-          "onlineLectureLink":{
+          "onlineLectureLink": {
             "type": "string"
           }
         }

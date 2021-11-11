@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
       required: true,
-      validate: [validator.isEmail, 'Please fill a valid email address']
+      validate: [validator.isEmail, "Please fill a valid email address"],
     },
     mobile: {
       type: String,
@@ -20,7 +20,10 @@ const UserSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
       required: true,
-      validate: [(mobile) => validator.isMobilePhone(`+91${mobile}`), 'Please fill a valid mobile number']
+      validate: [
+        (mobile) => validator.isMobilePhone(`+91${mobile}`),
+        "Please fill a valid mobile number",
+      ],
     },
     name: {
       type: String,
@@ -38,14 +41,14 @@ const UserSchema = new mongoose.Schema(
       required: true,
     },
     vaccinationStatus: {
-      type     : Number,
-      required : true,
-      min      : 0,
-      max      : 2,
-      validate : {
-        validator : Number.isInteger,
-        message   : '{VALUE} is not an integer value'
-      }
+      type: Number,
+      required: true,
+      min: 0,
+      max: 2,
+      validate: {
+        validator: Number.isInteger,
+        message: "{VALUE} is not an integer value",
+      },
     },
   },
   {

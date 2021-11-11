@@ -24,7 +24,7 @@ export const signin = async function (req, res, next) {
   try {
     let { email, password } = req.body;
     let user = await db.User.findOne({ email });
-    if(!user) {
+    if (!user) {
       return next({
         status: 400,
         message: "Invalid Email/Password.",

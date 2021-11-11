@@ -22,58 +22,68 @@ export const loginRequired = (req, res, next) => {
 
 export const checkRoleAndId = (role) => {
   return (req, res, next) => {
-    if (
-      req.decodedToken?.role === role
-    ) {
+    if (req.decodedToken?.role === role) {
       next();
     } else {
       return next({ status: 403, message: "Forbidden to access" });
     }
   };
-}
+};
 
 export const checkCourseCreatedByTeacher = async (req, res, next) => {
-  try{
-    const course = await db.Course.findOne({teacher: req.decodedToken?.id, _id: req.params.courseId});
+  try {
+    const course = await db.Course.findOne({
+      teacher: req.decodedToken?.id,
+      _id: req.params.courseId,
+    });
     if (course) {
       next();
     } else {
       return next({ status: 403, message: "Forbidden to access" });
     }
-  }catch(error){
+  } catch (error) {
     console.log(error);
     return next({ status: 500, message: "Internal error" });
   }
-}
+};
 
 export const checkStudentEnrolledInCourse = async (req, res, next) => {
-  try{
-    const course = await db.Course.findOne({_id: req.params.courseId, enrolledStudents: req.decodedToken?.id});
-    console.log({_id: req.params.courseId, enrolledStudents: req.decodedToken?.id},course);
+  try {
+    const course = await db.Course.findOne({
+      _id: req.params.courseId,
+      enrolledStudents: req.decodedToken?.id,
+    });
+    console.log(
+      { _id: req.params.courseId, enrolledStudents: req.decodedToken?.id },
+      course
+    );
     if (course) {
       next();
     } else {
       return next({ status: 403, message: "Forbidden to access" });
     }
-  }catch(error){
+  } catch (error) {
     console.log(error);
     return next({ status: 500, message: "Internal error" });
   }
-}
+};
 
 export const checkStudentNotEnrolledInCourse = async (req, res, next) => {
-  try{
-    const course = await db.Course.findOne({_id: req.params.courseId, enrolledStudents: req.decodedToken?.id});
+  try {
+    const course = await db.Course.findOne({
+      _id: req.params.courseId,
+      enrolledStudents: req.decodedToken?.id,
+    });
     if (!course) {
       next();
     } else {
       return next({ status: 200, message: "Already Enrolled" });
     }
-  }catch(error){
+  } catch (error) {
     console.log(error);
     return next({ status: 500, message: "Internal error" });
   }
-}
+};
 
 export default {
   loginRequired,
