@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import useDarkMode from "use-dark-mode";
 import Toggle from "./Toggle/Toggle";
-import Auth from "./Auth";
+import Auth from "./Auth/Auth";
 // import { getRole } from "../utils/token";
 
 const Header = ({ isAuthenticated, setIsAuthenticated }) => {

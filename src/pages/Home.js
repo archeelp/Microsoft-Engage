@@ -1,5 +1,5 @@
 import Logo from "../assets/homeLogo.svg";
-import Auth from "../components/Auth";
+import Auth from "../components/Auth/Auth";
 
 const Home = ({ isAuthenticated, setIsAuthenticated }) => {
   return (

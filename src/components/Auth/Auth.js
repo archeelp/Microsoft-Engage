@@ -1,9 +1,10 @@
 import { useState } from "react";
 import React from "react";
 import Popup from "reactjs-popup";
-import Api from "../utils/api";
+import Api from "../../utils/api";
 import { toast } from "react-toastify";
 import validator from "validator";
+import "./Auth.scoped.css";
 
 const contentStyle = { background: "rgba(255,255,255,0)", borderStyle: "none" };
 const overlayStyle = { background: "rgba(0,0,0,0.5)" };
@@ -30,13 +31,24 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
     if (password.length < 8) {
       return toast("Please Use A Password With Minimum Length 8");
     }
-    const toastElement = toast.loading(signIn?"Logging You In":"Signing You Up");
+    const toastElement = toast.loading(
+      signIn ? "Logging You In" : "Signing You Up"
+    );
     try {
       const response = signIn
         ? await Api.signIn({ email, password })
-        : await Api.signUp({ email, password, mobile, name, role, vaccinationStatus });
+        : await Api.signUp({
+            email,
+            password,
+            mobile,
+            name,
+            role,
+            vaccinationStatus,
+          });
       toast.update(toastElement, {
-        render: signIn?"Logged In Successfully":"Account Created Successfully",
+        render: signIn
+          ? "Logged In Successfully"
+          : "Account Created Successfully",
         type: "success",
         isLoading: false,
         autoClose: true,
@@ -190,11 +202,16 @@ const Auth = ({ setIsAuthenticated, isSignIn, ...props }) => {
       closeOnDocumentClick
     >
       {(close) => (
-        <AuthModal
-          isSignIn={isSignIn}
-          close={close}
-          setIsAuthenticated={setIsAuthenticated}
-        />
+        <>
+          <button className="close" onClick={close}>
+            &times;
+          </button>
+          <AuthModal
+            isSignIn={isSignIn}
+            close={close}
+            setIsAuthenticated={setIsAuthenticated}
+          />
+        </>
       )}
     </Popup>
   );

@@ -9,7 +9,7 @@ export const getRole = () => {
 };
 
 export const isLoggedIn = () => {
-  if (getDecodedToken()?.exp < new Date()) {
+  if (getDecodedToken()?.exp < Date.now()) {
     return true;
   } else {
     return false;
