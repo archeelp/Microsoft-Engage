@@ -2,7 +2,7 @@ import db from "../models/index.js";
 
 const getCourse = async (req, res) => {
   try {
-    const course = await db.Course.findOne({ _id: req.params.courseId });
+    const course = await db.Course.findOne({ _id: req.params.courseId }).populate("teacher");
     const recentLectures = await db.Lecture.find({
       course: req.params.courseId,
       startTime: { $lte: new Date() },
