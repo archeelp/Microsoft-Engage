@@ -499,6 +499,24 @@
       }
     },
     "/user": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get Profile",
+        "description": "To get profile details of an authorised user",
+        "operationId": "getUserProfile",
+        "responses": {
+          "200": {
+            "description": "Profile Fetched Successfully",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      },
       "put": {
         "tags": ["User"],
         "summary": "Update Profile",
