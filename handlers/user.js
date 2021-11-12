@@ -2,7 +2,7 @@ import db from "../models/index.js";
 
 const getProfile = async (req, res) => {
   try {
-    const user = await db.User.findOneAndUpdate({ _id: req.decodedToken.id });
+    const user = await db.User.findOne({ _id: req.decodedToken.id });
     res.status(200).json({ user, message: "Profile Fetched Successfully" });
   } catch (error) {
     console.log(error);
