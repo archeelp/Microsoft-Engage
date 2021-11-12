@@ -28,12 +28,20 @@ const CourseSchema = new mongoose.Schema(
       required: true,
       min: 1,
       max: 1000,
+      validate: {
+        validator: Number.isInteger,
+        message: "{VALUE} is not an integer value",
+      },
     },
     offlineLectureCapacity: {
       type: Number,
       required: true,
       min: 1,
       max: 1000,
+      validate: {
+        validator: Number.isInteger,
+        message: "{VALUE} is not an integer value",
+      },
     },
     onlineLectureLink: {
       type: String,
