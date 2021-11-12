@@ -51,14 +51,16 @@ const updateCourse = async (req, res) => {
       offlineCapacity,
       onlineLectureLink,
     } = req.body;
-    await db.Course.findByIdAndUpdate(req.params.courseId, {
+    const course = await db.Course.findByIdAndUpdate(req.params.courseId, {
       name,
       description,
       totalCapacity,
       offlineCapacity,
       onlineLectureLink,
+    }, {
+      new: true,
     });
-    res.status(200).json({ message: "Course updated" });
+    res.status(200).json({ message: "Course updated", course });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: error.message });
