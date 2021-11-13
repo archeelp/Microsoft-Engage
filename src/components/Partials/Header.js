@@ -3,8 +3,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import useDarkMode from "use-dark-mode";
-import Toggle from "./Toggle/Toggle";
-import Auth from "./Auth/Auth";
+import Toggle from "../Toggle/Toggle";
+import Auth from "../Auth";
 
 const Header = ({ isAuthenticated, setIsAuthenticated }) => {
   const navigate = useNavigate();
@@ -57,8 +57,13 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
             </Link>
           )}
           {isAuthenticated && (
-            <Link to="/courses" className="mr-5 hover:text-gray-900">
+            <Link to="/course" className="mr-5 hover:text-gray-900">
               Courses
+            </Link>
+          )}
+          {isAuthenticated && (
+            <Link to="/profile" className="mr-5 hover:text-gray-900">
+              Profile
             </Link>
           )}
         </nav>

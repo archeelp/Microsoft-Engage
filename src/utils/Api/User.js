@@ -4,6 +4,9 @@ const UserApi = {
   updateProfile: (user) => {
     return axios.put("/user", user);
   },
+  getProfile: () => {
+    return axios.get("/user");
+  },
 };
 
 export default UserApi;

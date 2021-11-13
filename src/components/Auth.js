@@ -1,13 +1,9 @@
 import { useState } from "react";
 import React from "react";
-import Popup from "reactjs-popup";
-import Api, { responseErrorHandler } from "../../utils/Api/Api";
+import Api, { responseErrorHandler } from "../utils/Api/Api";
 import { toast } from "react-toastify";
 import validator from "validator";
-import "./Auth.scoped.css";
-
-const contentStyle = { background: "rgba(255,255,255,0)", borderStyle: "none" };
-const overlayStyle = { background: "rgba(0,0,0,0.5)" };
+import Popup from "./Popup/Popup";
 
 const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
   const [signIn, setSignIn] = useState(isSignIn);
@@ -16,7 +12,7 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
   const [mobile, setMobile] = useState("");
   const [name, setName] = useState("");
   const [role, setRole] = useState("student");
-  const [vaccinationStatus, setVaccinationStatus] = useState(0);
+  const [vaccinationStatus, setVaccinationStatus] = useState("0");
 
   const submit = async () => {
     if (!validator.isEmail(email)) {
@@ -99,17 +95,17 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
         <div className="relative mb-4">
           <label className="leading-7 text-sm text-gray-600">Role</label>
           <br />
-          <label class="inline-flex items-center">
+          <label className="inline-flex items-center">
             <input
               type="radio"
               className="form-radio"
               name="role"
-              value="tutor"
+              value="teacher"
               onChange={(e) => setRole(e.target.value)}
             />
-            <span class="ml-2">Tutor</span>
+            <span className="ml-2">Teacher</span>
           </label>
-          <label class="inline-flex items-center ml-6">
+          <label className="inline-flex items-center ml-6">
             <input
               type="radio"
               className="form-radio"
@@ -118,7 +114,7 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
               onChange={(e) => setRole(e.target.value)}
               checked
             />
-            <span class="ml-2">Student</span>
+            <span className="ml-2">Student</span>
           </label>
         </div>
       )}
@@ -128,36 +124,38 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
             Vaccination Status
           </label>
           <br />
-          <label class="inline-flex items-center">
+          <label className="inline-flex items-center">
             <input
               type="radio"
               className="form-radio"
               name="vaccinationStatus"
               value="0"
               onChange={(e) => setVaccinationStatus(e.target.value)}
-              checked
+              checked={vaccinationStatus === "0"}
             />
-            <span class="ml-2">Not Vaccinated</span>
+            <span className="ml-2">Not Vaccinated</span>
           </label>
-          <label class="inline-flex items-center ml-6">
+          <label className="inline-flex items-center ml-6">
             <input
               type="radio"
               className="form-radio"
               name="vaccinationStatus"
               value="1"
+              checked={vaccinationStatus === "1"}
               onChange={(e) => setVaccinationStatus(e.target.value)}
             />
-            <span class="ml-2">Partially Vaccinated</span>
+            <span className="ml-2">Partially Vaccinated</span>
           </label>
-          <label class="inline-flex items-center ml-6">
+          <label className="inline-flex items-center ml-6">
             <input
               type="radio"
               className="form-radio"
               name="vaccinationStatus"
               value="2"
+              checked={vaccinationStatus === "2"}
               onChange={(e) => setVaccinationStatus(e.target.value)}
             />
-            <span class="ml-2">Fully Vaccinated</span>
+            <span className="ml-2">Fully Vaccinated</span>
           </label>
         </div>
       )}
@@ -185,27 +183,17 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
   );
 };
 
-const Auth = ({ setIsAuthenticated, isSignIn, ...props }) => {
+const Auth = ({ setIsAuthenticated, isSignIn, className, ...props }) => {
   return (
     <Popup
-      {...{ contentStyle, overlayStyle }}
-      trigger={<button {...props}>{isSignIn ? "SignIn" : "SignUp"}</button>}
-      modal
-      closeOnDocumentClick
-    >
-      {(close) => (
-        <div className="mx-4 my-2">
-          <button className="close" onClick={close}>
-            &times;
-          </button>
-          <AuthModal
-            isSignIn={isSignIn}
-            close={close}
-            setIsAuthenticated={setIsAuthenticated}
-          />
-        </div>
-      )}
-    </Popup>
+      Button={
+        <button className={className}>{isSignIn ? "SignIn" : "SignUp"}</button>
+      }
+      Modal={AuthModal}
+      setIsAuthenticated={setIsAuthenticated}
+      isSignIn={isSignIn}
+      {...props}
+    />
   );
 };
 

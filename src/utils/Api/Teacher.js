@@ -20,7 +20,7 @@ const TeacherApi = {
     return axios.post(`/teacher/course/${courseId}/lecture`, lecture);
   },
   getSchedule: (date) => {
-    return axios.get(`/teacher/schedule?date=${date}`);
+    return axios.get(`/teacher/schedule`, { params: { date } });
   },
 };
 

@@ -22,8 +22,8 @@ const Footer = () => {
           <a
             href="https://twitter.com/archeel_parekh"
             className="text-gray-600 ml-1"
-            rel="noopener noreferrer"
             target="_blank"
+            rel="noreferrer"
           >
             @archeelp
           </a>

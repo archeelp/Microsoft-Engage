@@ -24,6 +24,8 @@ export const responseErrorHandler = (error, toastElement) => {
     toast.update(toastElement, {
       render: error.response.data?.error?.message
         ? error.response.data?.error?.message
+        : error.response.data?.error
+        ? error.response.data?.error
         : "Some Error Occured",
       type: "error",
       isLoading: false,

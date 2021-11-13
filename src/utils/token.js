@@ -9,11 +9,11 @@ export const getRole = () => {
 };
 
 export const getUserId = () => {
-  return getDecodedToken()?.userId;
+  return getDecodedToken()?.id;
 };
 
 export const isLoggedIn = () => {
-  if (getDecodedToken()?.exp < Date.now()) {
+  if (getDecodedToken()?.exp > Date.now() / 1000) {
     return true;
   } else {
     return false;
