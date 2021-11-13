@@ -77,9 +77,31 @@ const deleteCourse = async (req, res) => {
   }
 };
 
+const getCourse = async (req, res) => {
+  try {
+    const course = await db.Course.findOne({ _id: req.params.courseId }).populate("teacher").populate("enrolledStudents");
+    const recentLectures = await db.Lecture.find({
+      course: req.params.courseId,
+      startTime: { $lte: new Date() },
+    }).sort({ startTime: -1 }).populate("registeredStudents","name email vaccinationStatus -_id").limit(10);
+    const activeLectures = await db.Lecture.find({
+      course: req.params.courseId,
+      startTime: { $gte: new Date() },
+    }).sort({ startTime: 1 }).populate("registeredStudents","name email vaccinationStatus -_id");
+    res.status(200).json({
+      course: { ...course._doc, recentLectures, activeLectures },
+      message: "Course retrieved successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export default {
   getCourses,
   createCourse,
   updateCourse,
   deleteCourse,
+  getCourse,
 };

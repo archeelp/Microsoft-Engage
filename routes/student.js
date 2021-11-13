@@ -1,5 +1,4 @@
 import express from "express";
-import courseHandler from "../handlers/course.js";
 import studentCourseHandler from "../handlers/student/course.js";
 import studentScheduleHandler from "../handlers/student/schedule.js";
 import middlewares from "../middlewares/index.js";
@@ -17,7 +16,7 @@ router
     middlewares.checkStudentNotEnrolledInCourse,
     studentCourseHandler.enrollCourse
   )
-  .get(middlewares.checkStudentEnrolledInCourse, courseHandler.getCourse)
+  .get(middlewares.checkStudentEnrolledInCourse, studentCourseHandler.getCourse)
   .delete(
     middlewares.checkStudentEnrolledInCourse,
     studentCourseHandler.unenrollCourse

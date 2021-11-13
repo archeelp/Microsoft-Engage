@@ -1,5 +1,4 @@
 import express from "express";
-import courseHandler from "../handlers/course.js";
 import teacherCourseHandler from "../handlers/teacher/course.js";
 import teacherLectureHandler from "../handlers/teacher/lecture.js";
 import teacherScheduleHandler from "../handlers/teacher/schedule.js";
@@ -16,7 +15,7 @@ router
 
 router
   .route("/course/:courseId")
-  .get(middlewares.checkCourseCreatedByTeacher, courseHandler.getCourse)
+  .get(middlewares.checkCourseCreatedByTeacher, teacherCourseHandler.getCourse)
   .put(
     middlewares.checkCourseCreatedByTeacher,
     teacherCourseHandler.updateCourse

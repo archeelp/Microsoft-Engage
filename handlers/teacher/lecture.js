@@ -9,6 +9,13 @@ const createLecture = async (req, res) => {
       onlineLectureLink,
       vaccinationCriteria,
     } = req.body;
+    console.log({
+      startTime,
+      endTime,
+      offlineLectureCapacity,
+      onlineLectureLink,
+      vaccinationCriteria,
+    });
     const lecture = await db.Lecture.create({
       startTime,
       endTime,

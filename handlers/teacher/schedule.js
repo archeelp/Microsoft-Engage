@@ -15,7 +15,7 @@ export const getSchedule = async (req, res) => {
       course: {
         $in: teacher.courses,
       },
-    }).populate("course");
+    }).populate("course").sort({ startTime: 1 }).populate("registeredStudents","name email vaccinationStatus -_id");
     res.status(200).json({ lectures, message: "Lectures fetched" });
   } catch (error) {
     console.log(error);
