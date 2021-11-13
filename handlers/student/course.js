@@ -51,11 +51,15 @@ const unenrollCourse = async (req, res) => {
 
 const getCourse = async (req, res) => {
   try {
-    const course = await db.Course.findOne({ _id: req.params.courseId }).populate("teacher");
+    const course = await db.Course.findOne({
+      _id: req.params.courseId,
+    }).populate("teacher");
     const recentLectures = await db.Lecture.find({
       course: req.params.courseId,
       startTime: { $lte: new Date() },
-    }).sort({ startTime: -1 }).limit(10);
+    })
+      .sort({ startTime: -1 })
+      .limit(10);
     const activeLectures = await db.Lecture.find({
       course: req.params.courseId,
       startTime: { $gte: new Date() },

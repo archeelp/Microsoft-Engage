@@ -26,5 +26,5 @@ const updateProfile = async (req, res) => {
 
 export default {
   updateProfile,
-  getProfile
+  getProfile,
 };

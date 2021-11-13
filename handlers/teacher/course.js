@@ -51,15 +51,19 @@ const updateCourse = async (req, res) => {
       offlineCapacity,
       onlineLectureLink,
     } = req.body;
-    const course = await db.Course.findByIdAndUpdate(req.params.courseId, {
-      name,
-      description,
-      totalCapacity,
-      offlineCapacity,
-      onlineLectureLink,
-    }, {
-      new: true,
-    });
+    const course = await db.Course.findByIdAndUpdate(
+      req.params.courseId,
+      {
+        name,
+        description,
+        totalCapacity,
+        offlineCapacity,
+        onlineLectureLink,
+      },
+      {
+        new: true,
+      }
+    );
     res.status(200).json({ message: "Course updated", course });
   } catch (error) {
     console.log(error);
@@ -79,15 +83,22 @@ const deleteCourse = async (req, res) => {
 
 const getCourse = async (req, res) => {
   try {
-    const course = await db.Course.findOne({ _id: req.params.courseId }).populate("teacher").populate("enrolledStudents");
+    const course = await db.Course.findOne({ _id: req.params.courseId })
+      .populate("teacher")
+      .populate("enrolledStudents");
     const recentLectures = await db.Lecture.find({
       course: req.params.courseId,
       startTime: { $lte: new Date() },
-    }).sort({ startTime: -1 }).populate("registeredStudents","name email vaccinationStatus -_id").limit(10);
+    })
+      .sort({ startTime: -1 })
+      .populate("registeredStudents", "name email vaccinationStatus -_id")
+      .limit(10);
     const activeLectures = await db.Lecture.find({
       course: req.params.courseId,
       startTime: { $gte: new Date() },
-    }).sort({ startTime: 1 }).populate("registeredStudents","name email vaccinationStatus -_id");
+    })
+      .sort({ startTime: 1 })
+      .populate("registeredStudents", "name email vaccinationStatus -_id");
     res.status(200).json({
       course: { ...course._doc, recentLectures, activeLectures },
       message: "Course retrieved successfully",
