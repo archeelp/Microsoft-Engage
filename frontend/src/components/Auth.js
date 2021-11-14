@@ -102,6 +102,7 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
               name="role"
               value="teacher"
               onChange={(e) => setRole(e.target.value)}
+              checked={role === "teacher"}
             />
             <span className="ml-2">Teacher</span>
           </label>
@@ -112,7 +113,7 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
               name="role"
               value="student"
               onChange={(e) => setRole(e.target.value)}
-              checked
+              checked={role === "student"}
             />
             <span className="ml-2">Student</span>
           </label>
