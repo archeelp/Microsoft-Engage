@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import Api, { responseErrorHandler } from "../../../utils/Api/Api";
+import Input from "../../Input";
+import Radio from "../../Radio";
 
 const CreateLecture = ({ course, setCourse }) => {
   const [offlineLectureCapacity, setOfflineLectureCapacity] = useState(
@@ -38,6 +40,7 @@ const CreateLecture = ({ course, setCourse }) => {
       setEndTime("");
       setVaccinationCriteria("0");
     } catch (error) {
+      console.log(error);
       responseErrorHandler(error, toastElement);
     }
   };
@@ -47,83 +50,52 @@ const CreateLecture = ({ course, setCourse }) => {
       <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
         Create Lecture
       </h2>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">Start Time</label>
-        <input
-          type="datetime-local"
-          onChange={(e) => setStartTime(e.target.value)}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        />
-      </div>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">End Time</label>
-        <input
-          type="datetime-local"
-          onChange={(e) => setEndTime(e.target.value)}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        />
-      </div>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">
-          Offline Lecture Capacity
-        </label>
-        <input
-          type="number"
-          value={offlineLectureCapacity}
-          onChange={(e) => setOfflineLectureCapacity(e.target.value)}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        />
-      </div>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">
-          Online Lecture Link
-        </label>
-        <input
-          type="text"
-          value={onlineLectureLink}
-          onChange={(e) => setOnlineLectureLink(e.target.value)}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        />
-      </div>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">
-          Vaccination Criteria
-        </label>
-        <br />
-        <label className="inline-flex items-center">
-          <input
-            type="radio"
-            className="form-radio"
-            name="vaccinationStatus"
-            value="0"
-            onChange={(e) => setVaccinationCriteria(e.target.value)}
-            checked={vaccinationCriteria === "0"}
-          />
-          <span className="ml-2">Not Vaccinated</span>
-        </label>
-        <label className="inline-flex items-center ml-6">
-          <input
-            type="radio"
-            className="form-radio"
-            name="vaccinationStatus"
-            value="1"
-            checked={vaccinationCriteria === "1"}
-            onChange={(e) => setVaccinationCriteria(e.target.value)}
-          />
-          <span className="ml-2">Partially Vaccinated</span>
-        </label>
-        <label className="inline-flex items-center ml-6">
-          <input
-            type="radio"
-            className="form-radio"
-            name="vaccinationStatus"
-            value="2"
-            checked={vaccinationCriteria === "2"}
-            onChange={(e) => setVaccinationCriteria(e.target.value)}
-          />
-          <span className="ml-2">Fully Vaccinated</span>
-        </label>
-      </div>
+      <Input 
+        label="Start Time"
+        type="datetime-local"
+        setter={setStartTime}
+        value={startTime}
+      />
+      <Input 
+        label="End Time"
+        type="datetime-local"
+        setter={setEndTime}
+        value={endTime}
+      />
+      <Input 
+        label="Offline Lecture Capacity"
+        type="number"
+        setter={setOfflineLectureCapacity}
+        value={offlineLectureCapacity}
+      />
+      <Input 
+        label="Online Lecture Link"
+        type="text"
+        setter={setOnlineLectureLink}
+        value={onlineLectureLink}
+      />
+      <Radio
+        label="Minimum Vaccination Criteria"
+        value={vaccinationCriteria}
+        setter={setVaccinationCriteria}
+        options={[
+          {
+            name:"vaccinationStatus",
+            value:"0",
+            label:"Not Vaccinated"
+          },
+          {
+            name:"vaccinationStatus",
+            value:"1",
+            label:"Partially Vaccinated"
+          },
+          {
+            name:"vaccinationStatus",
+            value:"2",
+            label:"Fully Vaccinated"
+          }
+        ]}
+      />
       <button
         onClick={submit}
         className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"

@@ -4,6 +4,8 @@ import Api, { responseErrorHandler } from "../utils/Api/Api";
 import { toast } from "react-toastify";
 import validator from "validator";
 import Popup from "./Popup/Popup";
+import Input from "./Input";
+import Radio from "./Radio";
 
 const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
   const [signIn, setSignIn] = useState(isSignIn);
@@ -64,110 +66,72 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
         Sign {signIn ? "In" : "Up"}
       </h2>
       {!signIn && (
-        <div className="relative mb-4">
-          <label className="leading-7 text-sm text-gray-600">Full Name</label>
-          <input
-            type="text"
-            onChange={(e) => setName(e.target.value)}
-            className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-          />
-        </div>
-      )}
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">Email</label>
-        <input
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+        <Input 
+          label="Full Name"
+          name="name"
+          setter={setName}
         />
-      </div>
-      {!signIn && (
-        <div className="relative mb-4">
-          <label className="leading-7 text-sm text-gray-600">Mobile</label>
-          <input
-            type="number"
-            onChange={(e) => setMobile(e.target.value)}
-            className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-          />
-        </div>
       )}
+      <Input 
+        label="Email"
+        type="email"
+        setter={setEmail}
+      />
       {!signIn && (
-        <div className="relative mb-4">
-          <label className="leading-7 text-sm text-gray-600">Role</label>
-          <br />
-          <label className="inline-flex items-center">
-            <input
-              type="radio"
-              className="form-radio"
-              name="role"
-              value="teacher"
-              onChange={(e) => setRole(e.target.value)}
-              checked={role === "teacher"}
-            />
-            <span className="ml-2">Teacher</span>
-          </label>
-          <label className="inline-flex items-center ml-6">
-            <input
-              type="radio"
-              className="form-radio"
-              name="role"
-              value="student"
-              onChange={(e) => setRole(e.target.value)}
-              checked={role === "student"}
-            />
-            <span className="ml-2">Student</span>
-          </label>
-        </div>
-      )}
-      {!signIn && (
-        <div className="relative mb-4">
-          <label className="leading-7 text-sm text-gray-600">
-            Vaccination Status
-          </label>
-          <br />
-          <label className="inline-flex items-center">
-            <input
-              type="radio"
-              className="form-radio"
-              name="vaccinationStatus"
-              value="0"
-              onChange={(e) => setVaccinationStatus(e.target.value)}
-              checked={vaccinationStatus === "0"}
-            />
-            <span className="ml-2">Not Vaccinated</span>
-          </label>
-          <label className="inline-flex items-center ml-6">
-            <input
-              type="radio"
-              className="form-radio"
-              name="vaccinationStatus"
-              value="1"
-              checked={vaccinationStatus === "1"}
-              onChange={(e) => setVaccinationStatus(e.target.value)}
-            />
-            <span className="ml-2">Partially Vaccinated</span>
-          </label>
-          <label className="inline-flex items-center ml-6">
-            <input
-              type="radio"
-              className="form-radio"
-              name="vaccinationStatus"
-              value="2"
-              checked={vaccinationStatus === "2"}
-              onChange={(e) => setVaccinationStatus(e.target.value)}
-            />
-            <span className="ml-2">Fully Vaccinated</span>
-          </label>
-        </div>
-      )}
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">Password</label>
-        <input
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+        <Input 
+          label="Mobile Number"
+          type="number"
+          setter={setMobile}
         />
-      </div>
+      )}
+      {!signIn && (
+        <Radio 
+          label="Role"
+          value={role}
+          setter={setRole}
+          options={[
+            {
+              label: "Student",
+              value: "student",
+              name: "role"
+            },
+            {
+              label: "Teacher",
+              value: "teacher",
+              name: "role"
+            }
+          ]}
+        />
+      )}
+      {!signIn && (
+        <Radio
+          label="Vaccination Status"
+          value={vaccinationStatus}
+          setter={setVaccinationStatus}
+          options={[
+            {
+              name:"vaccinationStatus",
+              value:"0",
+              label:"Not Vaccinated"
+            },
+            {
+              name:"vaccinationStatus",
+              value:"1",
+              label:"Partially Vaccinated"
+            },
+            {
+              name:"vaccinationStatus",
+              value:"2",
+              label:"Fully Vaccinated"
+            }
+          ]}
+        />
+      )}
+      <Input 
+        label="Password"
+        type="password"
+        setter={setPassword}
+      />
       <button
         onClick={submit}
         className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"

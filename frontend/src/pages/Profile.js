@@ -4,6 +4,8 @@ import Loader from "../components/Loader/Loader";
 import { toast } from "react-toastify";
 import { responseErrorHandler } from "../utils/Api/Api";
 import { useNavigate } from "react-router-dom";
+import Input from "../components/Input";
+import Radio from "../components/Radio";
 
 const Profile = () => {
   const [user, setUser] = useState({});
@@ -55,81 +57,52 @@ const Profile = () => {
       <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
         Update Profile
       </h2>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">Full Name</label>
-        <input
-          type="text"
-          value={user.name}
-          readOnly
-          onChange={(e) => setUser({ ...user, name: e.target.value })}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        />
-      </div>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">Email</label>
-        <input
-          type="email"
-          value={user.email}
-          readOnly
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        />
-      </div>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">Mobile</label>
-        <input
-          type="text"
-          value={user.mobile}
-          readOnly
-          onChange={(e) => setUser({ ...user, mobile: e.target.value })}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        />
-      </div>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">
-          Vaccination Status
-        </label>
-        <br />
-        <label className="inline-flex items-center">
-          <input
-            type="radio"
-            className="form-radio"
-            name="vaccinationStatus"
-            value="0"
-            onChange={(e) =>
-              setUser({ ...user, vaccinationStatus: e.target.value })
-            }
-            checked={user.vaccinationStatus === "0"}
-          />
-          <span className="ml-2">Not Vaccinated</span>
-        </label>
-        <label className="inline-flex items-center ml-6">
-          <input
-            type="radio"
-            className="form-radio"
-            name="vaccinationStatus"
-            value="1"
-            onChange={(e) =>
-              setUser({ ...user, vaccinationStatus: e.target.value })
-            }
-            checked={user.vaccinationStatus === "1"}
-          />
-          <span className="ml-2">Partially Vaccinated</span>
-        </label>
-        <label className="inline-flex items-center ml-6">
-          <input
-            type="radio"
-            className="form-radio"
-            name="vaccinationStatus"
-            value="2"
-            onChange={(e) =>
-              setUser({ ...user, vaccinationStatus: e.target.value })
-            }
-            checked={user.vaccinationStatus === "2"}
-          />
-          <span className="ml-2">Fully Vaccinated</span>
-        </label>
-      </div>
+      <Input
+        label="Full Name"
+        value={user.name}
+        setter={(value) => setUser({ ...user, name: value })}
+        type={"text"}
+        name={"name"}
+        readOnly
+      />
+      <Input
+        label="Email"
+        value={user.email}
+        setter={(value) => setUser({ ...user, email: value })}
+        type={"email"}
+        email={"email"}
+        readOnly
+      />
+      <Input
+        label="Mobile"
+        value={user.mobile}
+        setter={(value) => setUser({ ...user, mobile: value })}
+        type={"text"}
+        email={"mobile"}
+        readOnly
+      />
+      <Radio
+        label="Vaccination Status"
+        value={user.vaccinationStatus}
+        setter={(value) => setUser({ ...user, vaccinationStatus: value })}
+        options={[
+          {
+            name:"vaccinationStatus",
+            value:"0",
+            label:"Not Vaccinated"
+          },
+          {
+            name:"vaccinationStatus",
+            value:"1",
+            label:"Partially Vaccinated"
+          },
+          {
+            name:"vaccinationStatus",
+            value:"2",
+            label:"Fully Vaccinated"
+          }
+        ]}
+      />
       <button
         onClick={submit}
         className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mx-auto"

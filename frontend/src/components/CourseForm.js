@@ -4,6 +4,7 @@ import Api, { responseErrorHandler } from "../utils/Api/Api";
 import { toast } from "react-toastify";
 import validator from "validator";
 import Popup from "./Popup/Popup";
+import Input from "./Input";
 
 const CourseModalForm = ({
   close,
@@ -99,57 +100,36 @@ const CourseModalForm = ({
       <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
         {mode === "edit" ? `Edit ${name}` : "Create New Course"}
       </h2>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">Course Name</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        />
-      </div>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">Description</label>
-        <input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        />
-      </div>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">
-          Total Capacity
-        </label>
-        <input
-          type="number"
-          value={totalCapacity}
-          onChange={(e) => setTotalCapacity(e.target.value)}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        />
-      </div>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">
-          Offline Lecture Capacity
-        </label>
-        <input
-          type="number"
-          value={offlineLectureCapacity}
-          onChange={(e) => setOfflineLectureCapacity(e.target.value)}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        />
-      </div>
-      <div className="relative mb-4">
-        <label className="leading-7 text-sm text-gray-600">
-          Online Lecture Link
-        </label>
-        <input
-          type="text"
-          value={onlineLectureLink}
-          onChange={(e) => setOnlineLectureLink(e.target.value)}
-          className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        />
-      </div>
+      <Input 
+        label="Course Name"
+        value={name}
+        setter={setName}
+        type="text"
+      />
+      <Input 
+        label="Course Description"
+        value={description}
+        setter={setDescription}
+        type={"textarea"}
+      />
+      <Input 
+        label="Total Capacity"
+        value={totalCapacity}
+        setter={setTotalCapacity}
+        type="number"
+      />
+      <Input 
+        label="Offline Lecture Capacity"
+        value={offlineLectureCapacity}
+        setter={setOfflineLectureCapacity}
+        type="number"
+      />
+      <Input 
+        label="Online Lecture Link"
+        value={onlineLectureLink}
+        setter={setOnlineLectureLink}
+        type={"text"}
+      />
       <button
         onClick={submit}
         className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
