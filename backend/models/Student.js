@@ -11,9 +11,7 @@ const StudentSchema = new mongoose.Schema(
     enrolledCourses: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Course",
-        required: true,
-        unique: true,
+        ref: "Course"
       },
     ],
   },
