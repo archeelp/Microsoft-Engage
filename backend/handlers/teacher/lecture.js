@@ -1,5 +1,6 @@
 import db from "../../models/index.js";
 
+// Create a lecture in a particular course for authorised teacher
 const createLecture = async (req, res) => {
   try {
     const {
@@ -9,13 +10,7 @@ const createLecture = async (req, res) => {
       onlineLectureLink,
       vaccinationCriteria,
     } = req.body;
-    console.log({
-      startTime,
-      endTime,
-      offlineLectureCapacity,
-      onlineLectureLink,
-      vaccinationCriteria,
-    });
+
     const lecture = await db.Lecture.create({
       startTime,
       endTime,
@@ -24,6 +19,7 @@ const createLecture = async (req, res) => {
       course: req.params.courseId,
       vaccinationCriteria,
     });
+    
     res.status(201).json({ lecture, message: "Lecture created" });
   } catch (error) {
     console.log(error);

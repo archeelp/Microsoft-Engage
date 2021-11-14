@@ -3,9 +3,12 @@ dotenv.config();
 import jwt from "jsonwebtoken";
 import db from "../models/index.js";
 
+// Middleware to check if the user is authenticated
 export const loginRequired = (req, res, next) => {
   try {
+    // Get the JWT token from the header
     const token = req.headers.authorization.split(" ")[1];
+    // Verify the token
     jwt.verify(token, process.env.SECRET_KEY, function (err, decoded) {
       if (decoded) {
         req.decodedToken = decoded;
@@ -20,8 +23,10 @@ export const loginRequired = (req, res, next) => {
   }
 };
 
+// Returns a middleware if user is authorised for a particular role
 export const checkRoleAndId = (role) => {
   return (req, res, next) => {
+    // Role is matched with the role of the user
     if (req.decodedToken?.role === role) {
       next();
     } else {
@@ -30,6 +35,7 @@ export const checkRoleAndId = (role) => {
   };
 };
 
+// Middleware to check if the teacher is authorised to access a particular course
 export const checkCourseCreatedByTeacher = async (req, res, next) => {
   try {
     const course = await db.Course.findOne({
@@ -47,6 +53,7 @@ export const checkCourseCreatedByTeacher = async (req, res, next) => {
   }
 };
 
+// Middleware to check if the student is authorised to access a particular course
 export const checkStudentEnrolledInCourse = async (req, res, next) => {
   try {
     const course = await db.Course.findOne({
@@ -68,6 +75,7 @@ export const checkStudentEnrolledInCourse = async (req, res, next) => {
   }
 };
 
+// Middleware to check if the student is not enrolled in a particular course
 export const checkStudentNotEnrolledInCourse = async (req, res, next) => {
   try {
     const course = await db.Course.findOne({

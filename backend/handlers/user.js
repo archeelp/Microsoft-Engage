@@ -1,5 +1,6 @@
 import db from "../models/index.js";
 
+// Handler to get users profile
 const getProfile = async (req, res) => {
   try {
     const user = await db.User.findOne({ _id: req.decodedToken.id });
@@ -10,6 +11,7 @@ const getProfile = async (req, res) => {
   }
 };
 
+// Handler to update user profile
 const updateProfile = async (req, res) => {
   try {
     const { vaccinationStatus } = req.body;

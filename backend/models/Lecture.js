@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Lecture Schema - Lectures which are created as a part of course
 const LectureSchema = new mongoose.Schema(
   {
     course: {

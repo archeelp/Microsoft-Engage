@@ -4,10 +4,13 @@ import teacherLectureHandler from "../handlers/teacher/lecture.js";
 import teacherScheduleHandler from "../handlers/teacher/schedule.js";
 import middlewares from "../middlewares/index.js";
 
+// Teacher routes
 const router = express.Router();
 
+// Teacher schedule rout
 router.route("/schedule").get(teacherScheduleHandler.getSchedule);
 
+// Teacher course routes
 router
   .route("/course")
   .get(teacherCourseHandler.getCourses)

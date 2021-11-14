@@ -4,6 +4,7 @@ import Student from "./Student.js";
 import Teacher from "./Teacher.js";
 import validator from "validator";
 
+// User Schema - User is a system user who can be teacher or student
 const UserSchema = new mongoose.Schema(
   {
     email: {
@@ -63,6 +64,7 @@ UserSchema.pre("save", async function (next) {
     if (!user.isModified("password")) {
       return next();
     }
+    // Update the password to hashed password
     const hashedPassword = await bcrypt.hash(user.password, 10);
     user.password = hashedPassword;
     return next();
@@ -71,7 +73,7 @@ UserSchema.pre("save", async function (next) {
   }
 });
 
-// Creating the account according to the role
+// Creating the account(studnet/teacher) according to the role
 UserSchema.pre("save", async function (next) {
   const user = this;
   try {
@@ -79,11 +81,13 @@ UserSchema.pre("save", async function (next) {
       return next();
     }
     if (user.role === "student") {
+      // Creating a student account
       const student = new Student({
         user: user._id,
       });
       await student.save();
     } else if (user.role === "teacher") {
+      // Creating a teacher account
       const teacher = new Teacher({
         user: user._id,
       });

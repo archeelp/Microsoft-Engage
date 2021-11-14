@@ -11,6 +11,7 @@ mongoose.Promise = global.Promise;
 const databaseUri =
   process.env.MONGODB_URI || "mongodb://localhost/MicrosoftEngage";
 
+// Connect to MongoDB
 mongoose
   .connect(databaseUri, {
     useNewUrlParser: true,
@@ -20,6 +21,7 @@ mongoose
   .then(() => console.log(`Database connected to ${databaseUri}`))
   .catch((err) => console.log(`Database connection error: ${err.message}`));
 
+// Export all the models
 export default {
   User,
   Student,

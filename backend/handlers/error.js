@@ -1,3 +1,4 @@
+// Route Handler for application errors
 const internalError = (error, request, response, next) => {
   return response.status(error.status || 500).json({
     error: {
@@ -6,6 +7,7 @@ const internalError = (error, request, response, next) => {
   });
 };
 
+// Route handler for 404 errors
 const routeNotFound = (request, response, next) => {
   return response.status(404).json({
     error: {

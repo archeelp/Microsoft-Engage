@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import Teacher from "./Teacher.js";
 import Student from "./Student.js";
 
+// Course Schema - Course which are created by teacher
 const CourseSchema = new mongoose.Schema(
   {
     teacher: {
@@ -62,12 +63,15 @@ const CourseSchema = new mongoose.Schema(
   }
 );
 
+// Clear up the references of course
 CourseSchema.pre("deleteOne", async function (next) {
   try {
+    // Remove references of course from teacher
     await Teacher.findOneAndUpdate(
       { _id: this.teacher },
       { $pull: { courses: this._id } }
     );
+    // Remove references of course from students
     await Student.updateMany(
       { enrolledCourses: this._id },
       { $pull: { courses: this._id } }

@@ -1,23 +1,5 @@
 import db from "../models/index.js";
-import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-dotenv.config();
-
-// Generate auth token using JWT
-const generateAuthToken = (user) => {
-  let { id, role } = user;
-  let token = jwt.sign(
-    {
-      id,
-      role,
-    },
-    process.env.SECRET_KEY,
-    {
-      expiresIn: "1h",
-    }
-  );
-  return token;
-};
+import {generateAuthToken} from "../utils/generateAuthToken.js";
 
 // Verify users email-password and issue auth token
 export const signin = async function (req, res, next) {

@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Teacher Schema - Teacher who creates courses and lectures as a part of course
 const TeacherSchema = new mongoose.Schema(
   {
     user: {

@@ -1,5 +1,6 @@
 import db from "../../models/index.js";
 
+// Register authenticated student for lecture
 const registerForLecture = async (req, res) => {
   try {
     const lecture = await db.Lecture.findOne({
@@ -8,8 +9,12 @@ const registerForLecture = async (req, res) => {
       startTime: { $gte: new Date() },
     });
     const student = await db.User.findOne({ _id: req.decodedToken.id });
+
+    // If student matched the minimum vaccination criteria
     if (student.vaccinationStatus >= lecture.vaccinationCriteria) {
+      // If lecture is not full
       if (lecture.registeredStudents.length < lecture.offlineLectureCapacity) {
+        // If student is not registered for the lecture
         if (lecture.registeredStudents.includes(req.decodedToken.id)) {
           return res.status(200).json({
             message: "You are already registered for this lecture",

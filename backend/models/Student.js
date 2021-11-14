@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Student Schema - Students who register in courses aand lectures
 const StudentSchema = new mongoose.Schema(
   {
     user: {
