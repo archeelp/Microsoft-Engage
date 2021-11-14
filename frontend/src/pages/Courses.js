@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import { getRole } from "../utils/token.js";
 import { responseErrorHandler } from "../utils/Api/Api.js";
 import CourseLogo from "../assets/courseLogo.svg";
+import CreateNewCourseLogo from "../assets/createNewCourseLogo.svg";
+import NoCourseFoundLogo from "../assets/noCourseFoundLogo.svg";
 import CourseForm from "../components/CourseForm.js";
 import Loader from "../components/Loader/Loader";
 import { Link } from "react-router-dom";
@@ -58,36 +60,45 @@ const Courses = () => {
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
           {role === "teacher" && (
-            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-              {
-                <CourseForm
-                  Button={() => (
-                    <button className="block relative h-48 rounded overflow-hidden">
-                      <img
-                        alt="courseLogo"
-                        className="object-cover object-center w-full h-full block"
-                        src={CourseLogo}
-                      />
-                    </button>
-                  )}
-                  setCourses={setCourses}
-                  courses={courses}
-                  mode="create"
-                  currentCourseIndex={-1}
-                />
-              }
-              <div className="mt-4">
-                <h2 className="text-gray-900 title-font text-lg font-medium">
-                  Add New Course
-                </h2>
-              </div>
-            </div>
+            <CourseForm
+              Button={() => (
+                <button className="lg:w-1/4 md:w-1/2 p-4 w-full">
+                  <button className="block relative h-48 rounded overflow-hidden">
+                    <img
+                      alt="courseLogo"
+                      className="object-cover object-center w-full h-full block"
+                      src={CreateNewCourseLogo}
+                    />
+                  </button>
+                  <div className="mt-4">
+                    <h2 className="text-gray-900 title-font text-lg font-medium">
+                      Add New Course
+                    </h2>
+                  </div>
+                </button>
+              )}
+              setCourses={setCourses}
+              courses={courses}
+              mode="create"
+              currentCourseIndex={-1}
+            />
           )}
           {
-            courses.length === 0 && (
-              <h1 className="text-3xl font-medium text-gray-900 title-font mb-2 text-center">
-                No Course Found
-              </h1>
+            role === "student" && courses.length === 0 && (
+              <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
+                <button className="block relative h-48 rounded overflow-hidden">
+                  <img
+                    alt="courseLogo"
+                    className="object-cover object-center w-full h-full block"
+                    src={NoCourseFoundLogo}
+                  />
+                </button>
+                <div className="mt-4">
+                  <h2 className="text-gray-900 title-font text-lg font-medium">
+                    You haven't enrolled in any course yet. Join using course invite link.
+                  </h2>
+                </div>
+              </div>
             )
           }
           {courses.map((course, index) => (
