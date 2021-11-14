@@ -83,6 +83,13 @@ const Courses = () => {
               </div>
             </div>
           )}
+          {
+            courses.length === 0 && (
+              <h1 className="text-3xl font-medium text-gray-900 title-font mb-2 text-center">
+                No Course Found
+              </h1>
+            )
+          }
           {courses.map((course, index) => (
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full" key={index}>
               <Link

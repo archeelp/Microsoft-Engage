@@ -1,5 +1,6 @@
 import Logo from "../assets/homeLogo.svg";
 import Auth from "../components/Auth";
+import {Link} from "react-router-dom";
 
 const Home = ({ isAuthenticated, setIsAuthenticated }) => {
   return (
@@ -34,9 +35,9 @@ const Home = ({ isAuthenticated, setIsAuthenticated }) => {
                 />
               </>
             ) : (
-              <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+              <Link to="/course" className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 Get Started
-              </button>
+              </Link>
             )}
           </div>
           <p className="text-sm mt-2 text-gray-500 mb-8 w-full">
