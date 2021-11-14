@@ -1,5 +1,6 @@
 import CourseLogo from "../../assets/courseLogo.svg";
 import { toast } from "react-toastify";
+import {baseURL} from "../../constants.js";
 
 const Description = ({ course }) => {
   return (
@@ -40,7 +41,7 @@ const Description = ({ course }) => {
             );
             try {
               await navigator.clipboard.writeText(
-                `http://localhost:3000/course/join/${course._id}`
+                `${baseURL}/course/join/${course._id}`
               );
               toast.update(toastElement, {
                 render: "Copied Invite Link",

@@ -1,6 +1,7 @@
 import axios from "axios";
+import {baseURL} from "../../constants.js";
 
-axios.defaults.baseURL = "https://microsoft-engage-2021.herokuapp.com";
+axios.defaults.baseURL = baseURL;
 
 axios.interceptors.request.use(
   function (config) {
