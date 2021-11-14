@@ -19,7 +19,7 @@ export const getSchedule = async (req, res) => {
         $in: student.enrolledCourses,
       },
     }).populate("course");
-    
+
     res.status(200).json({ lectures, message: "Lectures fetched" });
   } catch (error) {
     console.log(error);

@@ -65,27 +65,13 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
       <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
         Sign {signIn ? "In" : "Up"}
       </h2>
+      {!signIn && <Input label="Full Name" name="name" setter={setName} />}
+      <Input label="Email" type="email" setter={setEmail} />
       {!signIn && (
-        <Input 
-          label="Full Name"
-          name="name"
-          setter={setName}
-        />
-      )}
-      <Input 
-        label="Email"
-        type="email"
-        setter={setEmail}
-      />
-      {!signIn && (
-        <Input 
-          label="Mobile Number"
-          type="number"
-          setter={setMobile}
-        />
+        <Input label="Mobile Number" type="number" setter={setMobile} />
       )}
       {!signIn && (
-        <Radio 
+        <Radio
           label="Role"
           value={role}
           setter={setRole}
@@ -93,13 +79,13 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
             {
               label: "Student",
               value: "student",
-              name: "role"
+              name: "role",
             },
             {
               label: "Teacher",
               value: "teacher",
-              name: "role"
-            }
+              name: "role",
+            },
           ]}
         />
       )}
@@ -110,28 +96,24 @@ const AuthModal = ({ setIsAuthenticated, close, isSignIn }) => {
           setter={setVaccinationStatus}
           options={[
             {
-              name:"vaccinationStatus",
-              value:"0",
-              label:"Not Vaccinated"
+              name: "vaccinationStatus",
+              value: "0",
+              label: "Not Vaccinated",
             },
             {
-              name:"vaccinationStatus",
-              value:"1",
-              label:"Partially Vaccinated"
+              name: "vaccinationStatus",
+              value: "1",
+              label: "Partially Vaccinated",
             },
             {
-              name:"vaccinationStatus",
-              value:"2",
-              label:"Fully Vaccinated"
-            }
+              name: "vaccinationStatus",
+              value: "2",
+              label: "Fully Vaccinated",
+            },
           ]}
         />
       )}
-      <Input 
-        label="Password"
-        type="password"
-        setter={setPassword}
-      />
+      <Input label="Password" type="password" setter={setPassword} />
       <button
         onClick={submit}
         className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"

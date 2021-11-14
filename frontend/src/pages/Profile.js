@@ -87,20 +87,20 @@ const Profile = () => {
         setter={(value) => setUser({ ...user, vaccinationStatus: value })}
         options={[
           {
-            name:"vaccinationStatus",
-            value:"0",
-            label:"Not Vaccinated"
+            name: "vaccinationStatus",
+            value: "0",
+            label: "Not Vaccinated",
           },
           {
-            name:"vaccinationStatus",
-            value:"1",
-            label:"Partially Vaccinated"
+            name: "vaccinationStatus",
+            value: "1",
+            label: "Partially Vaccinated",
           },
           {
-            name:"vaccinationStatus",
-            value:"2",
-            label:"Fully Vaccinated"
-          }
+            name: "vaccinationStatus",
+            value: "2",
+            label: "Fully Vaccinated",
+          },
         ]}
       />
       <button

@@ -83,24 +83,23 @@ const Courses = () => {
               currentCourseIndex={-1}
             />
           )}
-          {
-            role === "student" && courses.length === 0 && (
-              <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-                <button className="block relative h-48 rounded overflow-hidden">
-                  <img
-                    alt="courseLogo"
-                    className="object-cover object-center w-full h-full block"
-                    src={NoCourseFoundLogo}
-                  />
-                </button>
-                <div className="mt-4">
-                  <h2 className="text-gray-900 title-font text-lg font-medium">
-                    You haven't enrolled in any course yet. Join using course invite link.
-                  </h2>
-                </div>
+          {role === "student" && courses.length === 0 && (
+            <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
+              <button className="block relative h-48 rounded overflow-hidden">
+                <img
+                  alt="courseLogo"
+                  className="object-cover object-center w-full h-full block"
+                  src={NoCourseFoundLogo}
+                />
+              </button>
+              <div className="mt-4">
+                <h2 className="text-gray-900 title-font text-lg font-medium">
+                  You haven't enrolled in any course yet. Join using course
+                  invite link.
+                </h2>
               </div>
-            )
-          }
+            </div>
+          )}
           {courses.map((course, index) => (
             <div className="lg:w-1/4 md:w-1/2 p-4 w-full" key={index}>
               <Link

@@ -1,6 +1,6 @@
 import CourseLogo from "../../assets/courseLogo.svg";
 import { toast } from "react-toastify";
-import {publicURL} from "../../constants.js";
+import { publicURL } from "../../constants.js";
 
 const Description = ({ course }) => {
   return (

@@ -5,8 +5,6 @@ import userHandler from "../handlers/user.js";
 const router = express.Router();
 
 // User profile routes
-router.route("/")
-  .get(userHandler.getProfile)
-  .put(userHandler.updateProfile);
+router.route("/").get(userHandler.getProfile).put(userHandler.updateProfile);
 
 export default router;

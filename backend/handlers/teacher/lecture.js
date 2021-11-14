@@ -19,7 +19,7 @@ const createLecture = async (req, res) => {
       course: req.params.courseId,
       vaccinationCriteria,
     });
-    
+
     res.status(201).json({ lecture, message: "Lecture created" });
   } catch (error) {
     console.log(error);

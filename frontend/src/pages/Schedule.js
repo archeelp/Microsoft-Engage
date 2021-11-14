@@ -39,13 +39,11 @@ const Schedule = () => {
       <div className="container px-5 py-24 mx-auto flex flex-wrap">
         <div className="flex flex-wrap w-full">
           <div className="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
-            {
-              schedule.length === 0 && (
-                <h1 className="text-3xl font-medium text-gray-900 title-font mb-2 text-center">
-                  No Schedule Found
-                </h1>
-              )
-            }
+            {schedule.length === 0 && (
+              <h1 className="text-3xl font-medium text-gray-900 title-font mb-2 text-center">
+                No Schedule Found
+              </h1>
+            )}
             {schedule.map((lecture, index) => (
               <div className="flex relative pb-12" key={index}>
                 <div className="h-full w-10 absolute inset-0 flex items-center justify-center">

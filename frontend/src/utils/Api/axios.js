@@ -1,5 +1,5 @@
 import axios from "axios";
-import {baseURL} from "../../constants.js";
+import { baseURL } from "../../constants.js";
 
 axios.defaults.baseURL = baseURL;
 

@@ -1,4 +1,4 @@
-const Input = ({value, setter, label, type, ...props}) => {
+const Input = ({ value, setter, label, type, ...props }) => {
   return (
     <div className="relative mb-4">
       <label className="leading-7 text-sm text-gray-600">{label}</label>
@@ -10,7 +10,7 @@ const Input = ({value, setter, label, type, ...props}) => {
         {...props}
       />
     </div>
-  )
-}
+  );
+};
 
 export default Input;

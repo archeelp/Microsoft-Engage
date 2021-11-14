@@ -100,31 +100,26 @@ const CourseModalForm = ({
       <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
         {mode === "edit" ? `Edit ${name}` : "Create New Course"}
       </h2>
-      <Input 
-        label="Course Name"
-        value={name}
-        setter={setName}
-        type="text"
-      />
-      <Input 
+      <Input label="Course Name" value={name} setter={setName} type="text" />
+      <Input
         label="Course Description"
         value={description}
         setter={setDescription}
         type={"textarea"}
       />
-      <Input 
+      <Input
         label="Total Capacity"
         value={totalCapacity}
         setter={setTotalCapacity}
         type="number"
       />
-      <Input 
+      <Input
         label="Offline Lecture Capacity"
         value={offlineLectureCapacity}
         setter={setOfflineLectureCapacity}
         type="number"
       />
-      <Input 
+      <Input
         label="Online Lecture Link"
         value={onlineLectureLink}
         setter={setOnlineLectureLink}

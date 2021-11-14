@@ -20,4 +20,4 @@ export const generateAuthToken = (user) => {
 
 export default {
   generateAuthToken,
-}
+};

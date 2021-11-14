@@ -27,7 +27,8 @@
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "format": "pretty-quick --staged",
-    "format-check": "prettier --check ."
+    "format-check": "prettier --check .",
+    "format-manual": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [

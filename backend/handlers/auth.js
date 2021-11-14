@@ -1,5 +1,5 @@
 import db from "../models/index.js";
-import {generateAuthToken} from "../utils/generateAuthToken.js";
+import { generateAuthToken } from "../utils/generateAuthToken.js";
 
 // Verify users email-password and issue auth token
 export const signin = async function (req, res, next) {

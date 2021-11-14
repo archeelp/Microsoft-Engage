@@ -50,25 +50,25 @@ const CreateLecture = ({ course, setCourse }) => {
       <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
         Create Lecture
       </h2>
-      <Input 
+      <Input
         label="Start Time"
         type="datetime-local"
         setter={setStartTime}
         value={startTime}
       />
-      <Input 
+      <Input
         label="End Time"
         type="datetime-local"
         setter={setEndTime}
         value={endTime}
       />
-      <Input 
+      <Input
         label="Offline Lecture Capacity"
         type="number"
         setter={setOfflineLectureCapacity}
         value={offlineLectureCapacity}
       />
-      <Input 
+      <Input
         label="Online Lecture Link"
         type="text"
         setter={setOnlineLectureLink}
@@ -80,20 +80,20 @@ const CreateLecture = ({ course, setCourse }) => {
         setter={setVaccinationCriteria}
         options={[
           {
-            name:"vaccinationStatus",
-            value:"0",
-            label:"Not Vaccinated"
+            name: "vaccinationStatus",
+            value: "0",
+            label: "Not Vaccinated",
           },
           {
-            name:"vaccinationStatus",
-            value:"1",
-            label:"Partially Vaccinated"
+            name: "vaccinationStatus",
+            value: "1",
+            label: "Partially Vaccinated",
           },
           {
-            name:"vaccinationStatus",
-            value:"2",
-            label:"Fully Vaccinated"
-          }
+            name: "vaccinationStatus",
+            value: "2",
+            label: "Fully Vaccinated",
+          },
         ]}
       />
       <button

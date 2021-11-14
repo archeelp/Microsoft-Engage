@@ -6,7 +6,7 @@ const getCourses = async (req, res) => {
     const student = await db.Student.findOne({
       user: req.decodedToken.id,
     }).populate("enrolledCourses");
-    
+
     res.status(200).json({
       courses: student.enrolledCourses,
       message: "Successfully retrieved courses",
