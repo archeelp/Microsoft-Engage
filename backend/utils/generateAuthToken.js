@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Generate auth token using JWT with an expiry of an hour
-const generateAuthToken = (user) => {
+export const generateAuthToken = (user) => {
   let { id, role } = user;
   let token = jwt.sign(
     {
