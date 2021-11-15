@@ -24,7 +24,7 @@ const Description = ({ course }) => {
           Offline Lecture Capacity: {course.offlineLectureCapacity}
         </p>
         <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-          Teacher: {course.teacher?.name}
+          Teacher Name: {course.teacher?.name}
         </p>
         <a
           href={course.onlineLectureLink}
