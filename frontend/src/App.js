@@ -49,56 +49,50 @@ const App = () => {
               />
             }
           />
-          <Route
-            path="/schedule"
-            exact
-            element={
-              isAuthenticated ? 
-              <Suspense fallback={<Loader/>}>
-                <Schedule />
-              </Suspense>
-              : <Navigate to="/" />
-            }
-          />
-          <Route
-            path="/profile"
-            exact
-            element={
-              isAuthenticated ? 
-              <Suspense fallback={<Loader/>}>
-                <Profile />
-              </Suspense>
-              : <Navigate to="/" />
-            }
-          />
-          <Route
-            path="/course"
-            exact
-            element={
-              isAuthenticated ? 
-              <Suspense fallback={<Loader/>}>
-                <Courses />
-              </Suspense>
-              : <Navigate to="/" />
-            }
-          />
-          <Route path="/course/join/:courseId" element={
-              <Suspense fallback={<Loader/>}>
-                <JoinCourse />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/course/:courseId"
-            element={
-              isAuthenticated ? 
-              <Suspense fallback={<Loader/>}>
-                <Course />
-              </Suspense>
-              : <Navigate to="/" />
-            }
-          />
         </Routes>
+        <Suspense fallback={<Loader/>}>
+          <Routes>
+            <Route
+              path="/schedule"
+              exact
+              element={
+                isAuthenticated ? 
+                <Schedule />
+                : <Navigate to="/" />
+              }
+            />
+            <Route
+              path="/profile"
+              exact
+              element={
+                isAuthenticated ? 
+                <Profile />
+                : <Navigate to="/" />
+              }
+            />
+            <Route
+              path="/course"
+              exact
+              element={
+                isAuthenticated ? 
+                <Courses />
+                : <Navigate to="/" />
+              }
+            />
+            <Route path="/course/join/:courseId" element={
+                <JoinCourse />
+              }
+            />
+            <Route
+              path="/course/:courseId"
+              element={
+                isAuthenticated ? 
+                <Course />
+                : <Navigate to="/" />
+              }
+            />
+          </Routes>
+        </Suspense>
         <Footer />
       </div>
     </Router>
