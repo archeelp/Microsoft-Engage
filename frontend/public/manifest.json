@@ -1,7 +1,7 @@
 {
   "short_name": "Microsoft Engage",
   "name": "Microsoft Engage 2021",
-  "start_url": "index.html",
+  "start_url": "/",
   "icons": [
     {
       "src": "https://www.microsoft.com/favicon.ico?v2",
