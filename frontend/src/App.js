@@ -11,7 +11,7 @@ import Header from "./components/Partials/Header";
 import Footer from "./components/Partials/Footer";
 import Loader from "./components/Loader/Loader";
 
-const Home = React.lazy(() => import("./pages/Home"));
+import Home from "./pages/Home";
 const Schedule = React.lazy(() => import("./pages/Schedule"));
 const Profile = React.lazy(() => import("./pages/Profile"));
 const Courses = React.lazy(() => import("./pages/Courses"));
@@ -43,12 +43,10 @@ const App = () => {
             path="/"
             exact
             element={
-              <Suspense fallback={<Loader/>}>
-                <Home
-                  isAuthenticated={isAuthenticated}
-                  setIsAuthenticated={setIsAuthenticated}
-                />
-              </Suspense>
+              <Home
+                isAuthenticated={isAuthenticated}
+                setIsAuthenticated={setIsAuthenticated}
+              />
             }
           />
           <Route
