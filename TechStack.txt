@@ -1,5 +1,0 @@
-1. NodeJs(ExpressJs Framework) for Backend
-2. ReactJs Framework for Frontend
-3. MongoDB for Database
-4. OpenAPI Specification for API Documentation
-5. Heroku and Netlify for Deployment(Dockerized? And k8 Deployment?)
