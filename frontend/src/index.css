@@ -52,6 +52,11 @@ body.dark-mode [class*="modal"] {
   color: #999;
 }
 
+body.dark-mode [class*="demo-editor"] {
+  background-color: #1a1919 !important;
+  color: white;
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

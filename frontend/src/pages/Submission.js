@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import Api from "../utils/Api/Api.js";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { toast } from "react-toastify";
 import { responseErrorHandler } from "../utils/Api/Api.js";
 import Loader from "../components/Loader/Loader";
@@ -36,6 +36,9 @@ const Submission = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [language, setLanguage] = useState(languages[0].value);
   const [source, setSource] = useState("");
+
+  const submissionRef = useRef(null);
+  const executeScroll = () => submissionRef.current?.scrollIntoView();   
 
   const submitAssignment = async () => {
     const toastElement = toast.loading("Submitting Assignment");
@@ -127,7 +130,7 @@ const Submission = () => {
         {
           submission && (
             <>
-              <div className="bg-gray-200 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-5">
+              <div className="bg-gray-200 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-5" ref={submissionRef}>
                 <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
                   Grade: {submission.grade?submission.grade:"N/A"}
                 </h2>
@@ -188,7 +191,10 @@ const Submission = () => {
         }
         {
           role === "teacher" && (
-            <div className="-my-8 divide-y-2 divide-gray-100 mt-2">
+            <div className="-my-8 divide-y-2 divide-gray-100 mt-5">
+              <h1 className="text-3xl font-medium text-gray-900 title-font mb-2">
+                Submissions
+              </h1>
               {
                 assignment.submissions.map(submission => {
                   return (
@@ -198,7 +204,7 @@ const Submission = () => {
                         <span className="mt-1 text-gray-500 text-sm">{new Date(submission.createdAt).toLocaleTimeString()}</span>
                       </div>
                       <div className="md:flex-grow">
-                        <button onClick={() => {setSubmission(submission)}} className="text-indigo-500 inline-flex items-center mt-4">View Submission
+                        <button onClick={() => {setSubmission(submission); executeScroll();}} className="text-indigo-500 inline-flex items-center mt-4">View Submission
                           <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 12h14"></path>
                             <path d="M12 5l7 7-7 7"></path>
