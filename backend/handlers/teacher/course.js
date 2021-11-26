@@ -115,8 +115,11 @@ const getCourse = async (req, res) => {
       .sort({ startTime: 1 })
       .populate("registeredStudents", "name email vaccinationStatus -_id");
 
+    // Get all assignments in the course
+    const assignments = await db.Assignment.find({ course: req.params.courseId });
+
     res.status(200).json({
-      course: { ...course._doc, recentLectures, activeLectures },
+      course: { ...course._doc, recentLectures, activeLectures, assignments },
       message: "Course retrieved successfully",
     });
   } catch (error) {

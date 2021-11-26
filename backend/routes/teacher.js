@@ -1,38 +1,58 @@
 import express from "express";
-import teacherCourseHandler from "../handlers/teacher/course.js";
-import teacherLectureHandler from "../handlers/teacher/lecture.js";
-import teacherScheduleHandler from "../handlers/teacher/schedule.js";
+import teacherHandler from "../handlers/teacher/index.js";
 import middlewares from "../middlewares/index.js";
 
 // Teacher routes
 const router = express.Router();
 
 // Teacher schedule rout
-router.route("/schedule").get(teacherScheduleHandler.getSchedule);
+router.route("/schedule").get(teacherHandler.getSchedule);
 
 // Teacher course routes
 router
   .route("/course")
-  .get(teacherCourseHandler.getCourses)
-  .post(teacherCourseHandler.createCourse);
+  .get(teacherHandler.getCourses)
+  .post(teacherHandler.createCourse);
 
 router
   .route("/course/:courseId")
-  .get(middlewares.checkCourseCreatedByTeacher, teacherCourseHandler.getCourse)
+  .get(middlewares.checkCourseCreatedByTeacher, teacherHandler.getCourse)
   .put(
     middlewares.checkCourseCreatedByTeacher,
-    teacherCourseHandler.updateCourse
+    teacherHandler.updateCourse
   )
   .delete(
     middlewares.checkCourseCreatedByTeacher,
-    teacherCourseHandler.deleteCourse
+    teacherHandler.deleteCourse
   );
 
 router
   .route("/course/:courseId/lecture")
   .post(
     middlewares.checkCourseCreatedByTeacher,
-    teacherLectureHandler.createLecture
+    teacherHandler.createLecture
+  );
+
+// Teachers Assignment Management For Course Routes
+router
+  .route("/course/:courseId/assignment")
+  .post(
+    middlewares.checkCourseCreatedByTeacher,
+    teacherHandler.createAssignment
+  );
+
+router
+  .route("/course/:courseId/assignment/:assignmentId")
+  .get(
+    middlewares.checkCourseCreatedByTeacher,
+    teacherHandler.getAssignment
+  )
+
+router
+  .route("/course/:courseId/assignment/:assignmentId/submission/:submissionId")
+  .post(
+    middlewares.checkCourseCreatedByTeacher,
+    teacherHandler.gradeSubmission
   );
 
 export default router;

@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import useDarkMode from "use-dark-mode";
 import Toggle from "../Toggle/Toggle";
-import Auth from "../Auth";
 
 const Header = ({ isAuthenticated, setIsAuthenticated }) => {
   const navigate = useNavigate();
@@ -32,20 +31,6 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
       <ToastContainer />
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
-          {!isAuthenticated && (
-            <Auth
-              setIsAuthenticated={setIsAuthenticated}
-              isSignIn={true}
-              className="mr-5 hover:text-gray-900"
-            />
-          )}
-          {!isAuthenticated && (
-            <Auth
-              setIsAuthenticated={setIsAuthenticated}
-              isSignIn={false}
-              className="mr-5 hover:text-gray-900"
-            />
-          )}
           {isAuthenticated && (
             <button onClick={signOut} className="mr-5 hover:text-gray-900">
               SignOut

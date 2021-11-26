@@ -41,6 +41,10 @@
     {
       "name": "User",
       "description": "All routes and operations for a user"
+    },
+    {
+      "name": "Hooks",
+      "description": "Web Hooks For Async API Operations"
     }
   ],
   "paths": {
@@ -318,6 +322,153 @@
         "x-codegen-request-body-name": "body"
       }
     },
+    "/teacher/course/{courseId}/assignment": {
+      "post": {
+        "tags": ["Teacher"],
+        "summary": "Create Assignment",
+        "description": "To create a assignment for a course by the authorised teacher.",
+        "operationId": "createTeachersAssignment",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Assignment Object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Assignment"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Assignment created successfully",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/teacher/course/{courseId}/assignment/{assignmentId}": {
+      "get": {
+        "tags": ["Teacher"],
+        "summary": "Get Assignment",
+        "description": "To get a assignment for a course by the authorised teacher.",
+        "operationId": "getTeachersAssignment",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assignmentId",
+            "in": "path",
+            "description": "assignment ID of the assignment created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Assignment created successfully",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/teacher/course/{courseId}/assignment/{assignmentId}/submission/{submissionId}": {
+      "post": {
+        "tags": ["Teacher"],
+        "summary": "Grade a submission for assignment",
+        "description": "To get a submission for an assignment by the authorised teacher.",
+        "operationId": "gradeSubmission",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assignmentId",
+            "in": "path",
+            "description": "assignment ID of the assignment created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "submission ID of the assignment submitted by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Grade",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "grade": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Assignment created successfully",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
     "/student/course": {
       "get": {
         "tags": ["Student"],
@@ -498,6 +649,95 @@
         "x-codegen-request-body-name": "body"
       }
     },
+    "/student/course/{courseId}/assignment/{assignmentId}": {
+      "get": {
+        "tags": ["Student"],
+        "summary": "Get Assignment",
+        "description": "To get a assignment for a course by the authorised student.",
+        "operationId": "getStudentsAssignment",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assignmentId",
+            "in": "path",
+            "description": "assignment ID of the assignment created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Assignment created successfully",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      },
+      "post": {
+        "tags": ["Student"],
+        "summary": "Submit Assignment",
+        "description": "To submit a assignment for a course by the authorised student.",
+        "operationId": "submitStudentsAssignment",
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "description": "Course ID of the course created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assignmentId",
+            "in": "path",
+            "description": "assignment ID of the assignment created by teacher",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Submission Object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Submission"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Assignment created successfully",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
     "/user": {
       "get": {
         "tags": ["User"],
@@ -544,6 +784,32 @@
             "bearerAuth": []
           }
         ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/hooks/hackerearth": {
+      "post": {
+        "tags": ["Hooks"],
+        "summary": "HackerEarth callback for code execution status update",
+        "description": "To update code execution status of assignment",
+        "operationId": "updateExecutionStatus",
+        "requestBody": {
+          "description": "Status Update Object",
+          "content": {
+            "application/json": {
+              "schema":{
+                "type":"object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Code Execution Status Updated Successfully",
+            "content": {}
+          }
+        },
         "x-codegen-request-body-name": "body"
       }
     }
@@ -624,6 +890,37 @@
             "type": "integer"
           },
           "onlineLectureLink": {
+            "type": "string"
+          }
+        }
+      },
+      "Assignment": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string"
+          },
+          "input": {
+            "type": "string"
+          },
+          "output": {
+            "type": "string"
+          },
+          "maxGrade": {
+            "type": "integer"
+          },
+          "autoGrade": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Submission": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "language": {
             "type": "string"
           }
         }

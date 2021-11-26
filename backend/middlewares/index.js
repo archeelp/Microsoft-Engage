@@ -60,10 +60,6 @@ export const checkStudentEnrolledInCourse = async (req, res, next) => {
       _id: req.params.courseId,
       enrolledStudents: req.decodedToken?.id,
     });
-    console.log(
-      { _id: req.params.courseId, enrolledStudents: req.decodedToken?.id },
-      course
-    );
     if (course) {
       next();
     } else {

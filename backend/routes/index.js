@@ -3,6 +3,7 @@ import authRoutes from "./auth.js";
 import userRoutes from "./user.js";
 import teacherRoutes from "./teacher.js";
 import studentRoutes from "./student.js";
+import hackerearthHooks from "../hooks/hackerearth.js";
 
 import middlewares from "../middlewares/index.js";
 
@@ -16,6 +17,9 @@ const router = express.Router();
 // Swagger documentation route
 // Render the openapi document with swagger UI
 router.use("/documentation", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// Web Hooks
+router.use("/hooks/hackerearth", hackerearthHooks.submissionStatusUpdate);
 
 // Auth routes
 router.use("/auth", authRoutes);

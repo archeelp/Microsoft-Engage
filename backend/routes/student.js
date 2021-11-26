@@ -1,32 +1,42 @@
 import express from "express";
-import studentCourseHandler from "../handlers/student/course.js";
-import studentScheduleHandler from "../handlers/student/schedule.js";
+import studentHandler from "../handlers/student/index.js";
 import middlewares from "../middlewares/index.js";
-import studentLectureHandler from "../handlers/student/lecture.js";
 
 // Student routes
 const router = express.Router();
 
 // Student schedule route
-router.route("/schedule").get(studentScheduleHandler.getSchedule);
+router.route("/schedule").get(studentHandler.getSchedule);
 
 // Student course routes
-router.route("/course").get(studentCourseHandler.getCourses);
+router.route("/course").get(studentHandler.getCourses);
 
 router
   .route("/course/:courseId")
   .post(
     middlewares.checkStudentNotEnrolledInCourse,
-    studentCourseHandler.enrollCourse
+    studentHandler.enrollCourse
   )
-  .get(middlewares.checkStudentEnrolledInCourse, studentCourseHandler.getCourse)
+  .get(middlewares.checkStudentEnrolledInCourse, studentHandler.getCourse)
   .delete(
     middlewares.checkStudentEnrolledInCourse,
-    studentCourseHandler.unenrollCourse
+    studentHandler.unenrollCourse
   );
 
 router
   .route("/course/:courseId/lecture/:lectureId")
-  .post(studentLectureHandler.registerForLecture);
+  .post(studentHandler.registerForLecture);
+
+// Student Assignment For Course Routes
+router
+  .route("/course/:courseId/assignment/:assignmentId")
+  .get(
+    middlewares.checkStudentEnrolledInCourse,
+    studentHandler.getAssignment
+  )
+  .post(
+    middlewares.checkStudentEnrolledInCourse,
+    studentHandler.submitAssignment
+  );
 
 export default router;

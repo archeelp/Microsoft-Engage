@@ -5,6 +5,8 @@ import Student from "./Student.js";
 import Teacher from "./Teacher.js";
 import Course from "./Course.js";
 import Lecture from "./Lecture.js";
+import Assignment from "./Assignment.js";
+import Submission from "./Submission.js";
 dotenv.config();
 
 mongoose.Promise = global.Promise;
@@ -28,4 +30,6 @@ export default {
   Teacher,
   Course,
   Lecture,
+  Assignment,
+  Submission,
 };

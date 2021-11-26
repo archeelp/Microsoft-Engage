@@ -79,8 +79,11 @@ const getCourse = async (req, res) => {
       startTime: { $gte: new Date() },
     }).sort({ startTime: 1 });
 
+    // Get all assignments in given course
+    const assignments = await db.Assignment.find({ course: req.params.courseId });
+
     res.status(200).json({
-      course: { ...course._doc, recentLectures, activeLectures },
+      course: { ...course._doc, recentLectures, activeLectures, assignments },
       message: "Course retrieved successfully",
     });
   } catch (error) {
