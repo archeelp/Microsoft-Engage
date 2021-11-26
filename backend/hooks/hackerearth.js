@@ -5,8 +5,7 @@ const submissionStatusUpdate = async (req, res) => {
   try {
     const requestStatus = req.body.request_status?.code;
     if(requestStatus === "REQUEST_COMPLETED") {
-      console.log(req.body.context);
-      const context = req.body.context?JSON.parse(req.body.context.replace(/\'/g,"\"")):{};
+      const context = req.body.context?JSON.parse(req.body.context.replace(/\u'|'/g,"\"")):{};
       const outputURL = req.body.result?.run_status?.output;
       const response = await axios.get(outputURL);
       const submission = await db.Submission.findById(context.submissionId).populate("assignment");
