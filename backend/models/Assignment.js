@@ -8,6 +8,10 @@ const AssignmentSchema = new mongoose.Schema(
       ref: "Course",
       required: true,
     },
+    name: {
+      type: String,
+      required: true,
+    },
     question: {
       type: String,
       required: true,

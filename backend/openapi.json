@@ -897,6 +897,9 @@
       "Assignment": {
         "type": "object",
         "properties": {
+          "name": {
+            "type": "string"
+          },
           "question": {
             "type": "string"
           },

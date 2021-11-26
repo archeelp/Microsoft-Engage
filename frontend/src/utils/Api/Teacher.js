@@ -22,6 +22,21 @@ const TeacherApi = {
   getSchedule: (date) => {
     return axios.get(`/teacher/schedule`, { params: { date } });
   },
+  createAssignment: (courseId, assignment) => {
+    return axios.post(
+      `/teacher/course/${courseId}/assignment`,
+      assignment
+    );
+  },
+  getAssignment: (courseId, assignmentId) => {
+    return axios.get(`/teacher/course/${courseId}/assignment/${assignmentId}`);
+  },
+  gradeSubmission: (courseId, assignmentId, submissionId, submission) => {
+    return axios.post(
+      `/teacher/course/${courseId}/assignment/${assignmentId}/submission/${submissionId}`,
+      submission
+    );
+  }
 };
 
 export default TeacherApi;

@@ -2,8 +2,8 @@ import db from "../../models/index.js";
 
 const createAssignment = async (req, res) => {
   try {
-    const {question, input, output, autoGrade, maxGrade} = req.body;
-    const assignment = await db.Assignment.create({question, input, output, autoGrade, maxGrade, course: req.params.courseId});
+    const {question, input, output, autoGrade, maxGrade, name} = req.body;
+    const assignment = await db.Assignment.create({question, input, output, autoGrade, maxGrade, name, course: req.params.courseId});
     res
       .status(200)
       .json({ assignment: assignment, message: "Assignment Created Successfully" });
@@ -15,7 +15,12 @@ const createAssignment = async (req, res) => {
 
 const getAssignment = async (req, res) => {
   try {
-    const assignment = await db.Assignment.findOne({_id: req.params.assignmentId}).populate("submissions");
+    const assignment = await db.Assignment.findOne({_id: req.params.assignmentId}).populate({
+      path: "submissions",
+      populate: {
+        path: "student",
+      }
+    });
     res
       .status(200)
       .json({ assignment: assignment, message: "Assignment Fetched Successfully" });

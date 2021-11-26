@@ -19,6 +19,15 @@ const StudentApi = {
   getSchedule: (date) => {
     return axios.get(`/student/schedule`, { params: { date } });
   },
+  getAssignment: (courseId, assignmentId) => {
+    return axios.get(`/student/course/${courseId}/assignment/${assignmentId}`);
+  },
+  submitAssignment: (courseId, assignmentId, submission) => {
+    return axios.post(
+      `/student/course/${courseId}/assignment/${assignmentId}`,
+      submission
+    );
+  },
 };
 
 export default StudentApi;

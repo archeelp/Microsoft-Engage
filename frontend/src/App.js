@@ -17,6 +17,7 @@ const Profile = React.lazy(() => import("./pages/Profile"));
 const Courses = React.lazy(() => import("./pages/Courses"));
 const Course = React.lazy(() => import("./pages/Course"));
 const JoinCourse = React.lazy(() => import("./components/JoinCourse"));
+const Submission = React.lazy(() => import("./pages/Submission"));
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(isLoggedIn());
@@ -88,6 +89,14 @@ const App = () => {
               element={
                 isAuthenticated ? 
                 <Course />
+                : <Navigate to="/" />
+              }
+            />
+            <Route
+              path="/course/:courseId/assignment/:assignmentId"
+              element={
+                isAuthenticated? 
+                <Submission />
                 : <Navigate to="/" />
               }
             />
