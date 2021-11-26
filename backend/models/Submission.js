@@ -48,7 +48,7 @@ const autoGrade = async function (input, next) {
     var data = JSON.stringify({
       "lang": this.language,
       "memory_limit": 2463232,
-      "callback": "https://client.com/execute/result/",
+      "callback": "https://microsoft-engage-2021.herokuapp.com/hooks/hackerearth/",
       "time_limit": 5,
       "source": this.source,
       "input": input,
