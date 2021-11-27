@@ -105,6 +105,10 @@ Features:
 * Automated grading of programming assignments based on test cases matched in programs output
 * Dark and Light Mode Supported
 * Teacher and Students can manage their profile
+* Teacher and Students can view daily schedule
+* Responsive Design
+* Mobile Friendly
+* PWA (Progressive Web App) Supported
 
 [![Edit with Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/archeelp/MicrosoftEngage)
 
@@ -204,12 +208,106 @@ _For getting started with project, please refer to the [Installation](#installat
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Screenshots -->
-## Screenshots
+# Screenshots
 
-### Landing Page
+## Landing Page
 
+### Light Mode
+![Landing Page Dark](images/landingPageLight.png)
+
+### Dark Mode
 ![Landing Page Dark](images/landingPage.png)
 
+## SignIn Modal
+![Signin](images/signin.png)
+
+## Register Modal
+![Register](images/register.png)
+
+## Student
+
+### Course Invite Link
+![Course Invite](images/student/courseInvite.png)
+
+### Enroll in Course
+![Enroll](images/student/enroll.png)
+
+### Enrolled Courses
+![Enrolled Courses](images/student/courses.png)
+
+### Course Page
+![Enrolled Courses](images/student/courseDescription.png)
+
+### Assignments
+![Assignments](images/student/assignments.png)
+
+### Submit Assignment
+![Submit Assignment](images/student/assignment1.png)
+
+### Select Programming Language
+![Submit Assignment](images/student/assignment2.png)
+
+### Assignment Auto Graded
+![Assignment AutoGraded](images/student/assignment3.png)
+
+### Register For Lecture - Vaccination Criteria Does Not Match
+![Register](images/student/registerLecture1.png)
+
+### Register For Lecture - Vaccination Criteria Matches
+![Register](images/student/registerLecture2.png)
+
+## Teacher
+
+### Manage Courses
+![Manage Courses](images/teacher/courses.png)
+
+### Create/Edit Course
+![Create/Edit Course](images/teacher/createCourse.png)
+
+### Course Page
+![Enrolled Courses](images/teacher/courseDescription.png)
+
+### Enrolled Students List
+![Enrolled Students](images/teacher/enrolled.png)
+
+### Create Lecture
+![Create Lecture](images/teacher/createLecture.png)
+
+### Lectures
+![Lectures](images/teacher/lectures.png)
+
+### Download Attendance Report For Lecture
+![Download Attendance](images/teacher/attendance1.png)
+
+### Attendance Report
+![Attendance Report](images/teacher/attendance2.png)
+
+### Create Assignment
+![Assignment](images/teacher/createAssignment1.png)
+
+### Create AutoGraded Assignment
+![Assignment](images/teacher/createAssignment2.png)
+
+### View Submissions
+![Assignment](images/teacher/submission.png)
+
+### View Submission and view/change Grade
+![Assignment](images/teacher/submission1.png)
+
+## Profile
+![Profile](images/profile.png)
+
+## Daily Schedule
+![Schedule](images/schedule.png)
+
+## Mobile Compatible And Responsive
+![Responsive](images/responsive.png)
+
+## Backend Swagger Documentation
+![Swagger](images/swagger.png)
+
+## Light House Report
+![LightHouse](images/lighthouse.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
