@@ -53,7 +53,7 @@ const Profile = () => {
   return isLoading ? (
     <Loader />
   ) : (
-    <div className="bg-gray-200 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 lg:w-1/2 md:w-2/3 mx-auto">
+    <div className="bg-gray-200 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-0 md:mt-10 lg:w-1/2 md:w-2/3 mx-auto">
       <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
         Update Profile
       </h2>
