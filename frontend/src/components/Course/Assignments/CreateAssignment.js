@@ -6,8 +6,8 @@ import Radio from "../../Radio";
 import Editor from "../../Editor";
 import TextArea from "../../TextArea";
 
-import { EditorState, convertToRaw } from 'draft-js';
-import draftToMarkdown from 'draftjs-to-markdown';
+import { EditorState, convertToRaw } from "draft-js";
+import draftToMarkdown from "draftjs-to-markdown";
 
 const CreateAssignment = ({ course, setCourse }) => {
   const [name, setName] = useState("");
@@ -20,8 +20,17 @@ const CreateAssignment = ({ course, setCourse }) => {
   const submit = async () => {
     const toastElement = toast.loading("Creating Assignment");
     try {
-      const questionHTML = draftToMarkdown(convertToRaw(editorState.getCurrentContent()));
-      const response = await Api.teacher.createAssignment(course._id, {name, autoGrade, input, output, maxGrade, question: questionHTML});
+      const questionHTML = draftToMarkdown(
+        convertToRaw(editorState.getCurrentContent())
+      );
+      const response = await Api.teacher.createAssignment(course._id, {
+        name,
+        autoGrade,
+        input,
+        output,
+        maxGrade,
+        question: questionHTML,
+      });
       const { message, assignment } = response.data;
       setCourse({
         ...course,
@@ -53,7 +62,7 @@ const CreateAssignment = ({ course, setCourse }) => {
       <Radio
         label="Grading Method"
         value={autoGrade}
-        setter={(v)=>setAutoGrade(v === "true"? true:false)}
+        setter={(v) => setAutoGrade(v === "true" ? true : false)}
         options={[
           {
             name: "autoGrade",
@@ -64,11 +73,10 @@ const CreateAssignment = ({ course, setCourse }) => {
             name: "autoGrade",
             value: true,
             label: "Auto",
-          }
+          },
         ]}
       />
-      {
-        autoGrade &&
+      {autoGrade && (
         <>
           <TextArea
             label="Input Test Cases For Program"
@@ -89,7 +97,7 @@ const CreateAssignment = ({ course, setCourse }) => {
             value={maxGrade}
           />
         </>
-      }
+      )}
       <Editor
         label="Assignment Question"
         editorState={editorState}

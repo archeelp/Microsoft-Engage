@@ -7,8 +7,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -17,14 +15,13 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -49,8 +46,6 @@
     <a href="https://github.com/archeelp/MicrosoftEngage/issues">Request Feature</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -79,9 +74,8 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://microsoft-engage-2021.ml/)
@@ -89,32 +83,31 @@
 This a functional prototype of a platform that gives students an array of digital academic and social tools to stay engaged with their studies, peers and broader university community during pandemic.
 
 Features:
-* Teachers and students can register and login to the platform
-* Teachers can create and manage their own courses
-* Teachers can generate and share the course invite link
-* Students can join the course with course invite link
-* Students and Teachers can view the course content
-* Teachers can create lectures with offline lecture registration, offline capacity, online lecture link and minimum vaccination criteria required
-* Students can register for offline lectures if they meet the minimum vaccination criteria
-* Teachers can download the offline lecture attendance report
-* Teachers and Students can view daily schedule
-* Teachers can create and grade programming assignments
-* Students can submit programming assignments
-* Teachers and Students can view programming assignment submissions
-* Automated grading of programming assignments with multiple programming languages supported
-* Automated grading of programming assignments based on test cases matched in programs output
-* Dark and Light Mode Supported
-* Teacher and Students can manage their profile
-* Teacher and Students can view daily schedule
-* Responsive Design
-* Mobile Friendly
-* PWA (Progressive Web App) Supported
+
+- Teachers and students can register and login to the platform
+- Teachers can create and manage their own courses
+- Teachers can generate and share the course invite link
+- Students can join the course with course invite link
+- Students and Teachers can view the course content
+- Teachers can create lectures with offline lecture registration, offline capacity, online lecture link and minimum vaccination criteria required
+- Students can register for offline lectures if they meet the minimum vaccination criteria
+- Teachers can download the offline lecture attendance report
+- Teachers and Students can view daily schedule
+- Teachers can create and grade programming assignments
+- Students can submit programming assignments
+- Teachers and Students can view programming assignment submissions
+- Automated grading of programming assignments with multiple programming languages supported
+- Automated grading of programming assignments based on test cases matched in programs output
+- Dark and Light Mode Supported
+- Teacher and Students can manage their profile
+- Teacher and Students can view daily schedule
+- Responsive Design
+- Mobile Friendly
+- PWA (Progressive Web App) Supported
 
 [![Edit with Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/archeelp/MicrosoftEngage)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 ### Built With
 
@@ -131,19 +124,17 @@ Features:
 	<a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40" /> </a>
 </p>
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 Have NodeJS and MongoDB installed on your machine.
 
 ### Prerequisites
 
-* npm
+- npm
   ```sh
   npm install npm@latest -g
   ```
@@ -182,16 +173,15 @@ _Follow the below instructions to clone the repo and start the backend and front
    npm install
    ```
 9. Start the frontend server
-    ```sh
-    npm run start
-    ```
+   ```sh
+   npm run start
+   ```
 10. Both backend and frontend servers are up and running, you can view your website on [http://localhost:3000](http://localhost:3000)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- USAGE EXAMPLES -->
+
 ## Usage
 
 Complete list of all the endpoints and their usage examples. [API Documentation](https://microsoft-engage-2021.herokuapp.com/documentation)
@@ -204,112 +194,143 @@ _For getting started with project, please refer to the [Installation](#installat
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Screenshots -->
+
 # Screenshots
 
 ## Landing Page
 
 ### Light Mode
+
 ![Landing Page Dark](images/landingPageLight.png)
 
 ### Dark Mode
+
 ![Landing Page Dark](images/landingPage.png)
 
 ## SignIn Modal
+
 ![Signin](images/signin.png)
 
 ## Register Modal
+
 ![Register](images/register.png)
 
 ## Student
 
 ### Course Invite Link
+
 ![Course Invite](images/student/courseInvite.png)
 
 ### Enroll in Course
+
 ![Enroll](images/student/enroll.png)
 
 ### Enrolled Courses
+
 ![Enrolled Courses](images/student/courses.png)
 
 ### Course Page
+
 ![Enrolled Courses](images/student/courseDescription.png)
 
 ### Assignments
+
 ![Assignments](images/student/assignments.png)
 
 ### Submit Assignment
+
 ![Submit Assignment](images/student/assignment1.png)
 
 ### Select Programming Language
+
 ![Submit Assignment](images/student/assignment2.png)
 
 ### Assignment Auto Graded
+
 ![Assignment AutoGraded](images/student/assignment3.png)
 
 ### Register For Lecture - Vaccination Criteria Does Not Match
+
 ![Register](images/student/registerLecture1.png)
 
 ### Register For Lecture - Vaccination Criteria Matches
+
 ![Register](images/student/registerLecture2.png)
 
 ## Teacher
 
 ### Manage Courses
+
 ![Manage Courses](images/teacher/courses.png)
 
 ### Create/Edit Course
+
 ![Create/Edit Course](images/teacher/createCourse.png)
 
 ### Course Page
+
 ![Enrolled Courses](images/teacher/courseDescription.png)
 
 ### Enrolled Students List
+
 ![Enrolled Students](images/teacher/enrolled.png)
 
 ### Create Lecture
+
 ![Create Lecture](images/teacher/createLecture.png)
 
 ### Lectures
+
 ![Lectures](images/teacher/lectures.png)
 
 ### Download Attendance Report For Lecture
+
 ![Download Attendance](images/teacher/attendance1.png)
 
 ### Attendance Report
+
 ![Attendance Report](images/teacher/attendance2.png)
 
 ### Create Assignment
+
 ![Assignment](images/teacher/createAssignment1.png)
 
 ### Create AutoGraded Assignment
+
 ![Assignment](images/teacher/createAssignment2.png)
 
 ### View Submissions
+
 ![Assignment](images/teacher/submissions.png)
 
 ### View Submission and view/change Grade
+
 ![Assignment](images/teacher/submission1.png)
 
 ## Profile
+
 ![Profile](images/profile.png)
 
 ## Daily Schedule
+
 ![Schedule](images/schedule.png)
 
 ## Mobile Compatible And Responsive
+
 ![Responsive](images/responsive.png)
 
 ## Backend Swagger Documentation
+
 ![Swagger](images/swagger.png)
 
 ## Light House Report
+
 ![LightHouse](images/lighthouse.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- ROADMAP -->
+
 ## Roadmap
 
 - [x] Add Changelog
@@ -317,16 +338,15 @@ _For getting started with project, please refer to the [Installation](#installat
 - [ ] Add Additional Templates w/ Examples
 - [ ] Add "components" document to easily copy & paste sections of the readme
 - [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+  - [ ] Chinese
+  - [ ] Spanish
 
 See the [open issues](https://github.com/archeelp/MicrosoftEngage/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -342,18 +362,16 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- CONTACT -->
+
 ## Contact
 
 Archeel Parekh - [@archeel-parekh](https://www.linkedin.com/in/archeel-parekh/)
@@ -362,21 +380,19 @@ Project Link: [https://github.com/archeelp/MicrosoftEngage](https://github.com/a
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
-* [Img Shields](https://shields.io)
-* [Heroku](https://www.heroku.com)
-* [Netlify](https://www.netlify.com)
+- [Img Shields](https://shields.io)
+- [Heroku](https://www.heroku.com)
+- [Netlify](https://www.netlify.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/archeelp/MicrosoftEngage.svg?style=for-the-badge
 [contributors-url]: https://github.com/archeelp/MicrosoftEngage/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/archeelp/MicrosoftEngage.svg?style=for-the-badge

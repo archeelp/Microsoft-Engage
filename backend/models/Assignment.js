@@ -15,27 +15,29 @@ const AssignmentSchema = new mongoose.Schema(
     question: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
     },
     input: {
       type: String,
-      trim: true
+      trim: true,
     },
     output: {
       type: String,
-      trim: true
+      trim: true,
     },
     autoGrade: {
       type: Boolean,
-      default: false
+      default: false,
     },
     maxGrade: {
       type: Number,
     },
-    submissions: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Submission"
-    }]
+    submissions: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Submission",
+      },
+    ],
   },
   {
     timestamps: true,

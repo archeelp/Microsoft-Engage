@@ -30,10 +30,7 @@ router
 // Student Assignment For Course Routes
 router
   .route("/course/:courseId/assignment/:assignmentId")
-  .get(
-    middlewares.checkStudentEnrolledInCourse,
-    studentHandler.getAssignment
-  )
+  .get(middlewares.checkStudentEnrolledInCourse, studentHandler.getAssignment)
   .post(
     middlewares.checkStudentEnrolledInCourse,
     studentHandler.submitAssignment

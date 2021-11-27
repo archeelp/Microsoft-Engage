@@ -15,10 +15,7 @@ const Assignments = ({ course, setCourse }) => {
         </h1>
         <div className="-my-8 divide-y-2 divide-gray-100">
           {course.assignments?.map((assignment, index) => (
-            <Assignment
-              assignment={assignment}
-              key={index}
-            />
+            <Assignment assignment={assignment} key={index} />
           ))}
         </div>
       </div>

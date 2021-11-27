@@ -20,8 +20,10 @@ const Home = ({ isAuthenticated, setIsAuthenticated }) => {
             An Online Classroom Portal
           </h1>
           <p className="mb-8 leading-relaxed text-gray-600">
-            Learning Redefined... <br/>
-            A functional prototype of a platform that gives students an array of digital academic and social tools to stay engaged with their studies, peers and broader university community during pandemic.
+            Learning Redefined... <br />A functional prototype of a platform
+            that gives students an array of digital academic and social tools to
+            stay engaged with their studies, peers and broader university
+            community during pandemic.
           </p>
           <div className="flex w-full md:justify-start justify-center items-end">
             {!isAuthenticated ? (

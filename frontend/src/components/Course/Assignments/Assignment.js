@@ -9,12 +9,11 @@ const Assignment = ({ assignment }) => {
         <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
           {`Assignment Name: ${assignment.name}`}
         </h2>
-        {
-          role === "teacher" && 
+        {role === "teacher" && (
           <p className="leading-relaxed">
             {`Number Of Submissons: ${assignment.submissions.length}`}
           </p>
-        }
+        )}
         <p className="leading-relaxed">
           {assignment.autoGrade ? "Auto Graded" : "Manual Graded"}
         </p>

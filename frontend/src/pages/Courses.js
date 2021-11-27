@@ -67,13 +67,13 @@ const Courses = () => {
             />
           )}
           {role === "student" && courses.length === 0 && (
-            <StarterCard 
+            <StarterCard
               imageSrc={NoCourseFoundLogo}
               title="You haven't enrolled in any course yet. Join using course invite link."
             />
           )}
           {courses.map((course, index) => (
-            <CourseCard 
+            <CourseCard
               course={course}
               key={index}
               imageSrc={CourseLogo}

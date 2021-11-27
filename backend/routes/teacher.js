@@ -17,21 +17,12 @@ router
 router
   .route("/course/:courseId")
   .get(middlewares.checkCourseCreatedByTeacher, teacherHandler.getCourse)
-  .put(
-    middlewares.checkCourseCreatedByTeacher,
-    teacherHandler.updateCourse
-  )
-  .delete(
-    middlewares.checkCourseCreatedByTeacher,
-    teacherHandler.deleteCourse
-  );
+  .put(middlewares.checkCourseCreatedByTeacher, teacherHandler.updateCourse)
+  .delete(middlewares.checkCourseCreatedByTeacher, teacherHandler.deleteCourse);
 
 router
   .route("/course/:courseId/lecture")
-  .post(
-    middlewares.checkCourseCreatedByTeacher,
-    teacherHandler.createLecture
-  );
+  .post(middlewares.checkCourseCreatedByTeacher, teacherHandler.createLecture);
 
 // Teachers Assignment Management For Course Routes
 router
@@ -43,10 +34,7 @@ router
 
 router
   .route("/course/:courseId/assignment/:assignmentId")
-  .get(
-    middlewares.checkCourseCreatedByTeacher,
-    teacherHandler.getAssignment
-  )
+  .get(middlewares.checkCourseCreatedByTeacher, teacherHandler.getAssignment);
 
 router
   .route("/course/:courseId/assignment/:assignmentId/submission/:submissionId")

@@ -4,7 +4,7 @@ import { responseErrorHandler } from "../utils/Api/Api.js";
 import CourseForm from "../components/CourseForm.js";
 import { Link } from "react-router-dom";
 
-export const StarterCard = ({imageSrc, title}) => {
+export const StarterCard = ({ imageSrc, title }) => {
   return (
     <button className="lg:w-1/4 md:w-1/2 p-4 w-full">
       <div className="block relative h-48 rounded overflow-hidden">
@@ -20,10 +20,10 @@ export const StarterCard = ({imageSrc, title}) => {
         </h2>
       </div>
     </button>
-  )
-}
+  );
+};
 
-export const CourseCard = ({imageSrc, role, setCourses, courses, index}) => {
+export const CourseCard = ({ imageSrc, role, setCourses, courses, index }) => {
   const course = courses[index];
   const deleteCourse = async (id) => {
     const toastElement = toast.loading("Deleting Course");
@@ -88,5 +88,5 @@ export const CourseCard = ({imageSrc, role, setCourses, courses, index}) => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};

@@ -72,13 +72,9 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
         </Link>
         <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
           <div className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded mt-4 md:mt-0 text-gray-700">
-            <label htmlFor="dmcheck">
-              ☀
-            </label>
+            <label htmlFor="dmcheck">☀</label>
             <Toggle checked={darkMode.value} onChange={darkMode.toggle} />
-            <label htmlFor="dmcheck">
-              ☾
-            </label>
+            <label htmlFor="dmcheck">☾</label>
           </div>
         </div>
       </div>

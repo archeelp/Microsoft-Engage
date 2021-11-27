@@ -134,7 +134,9 @@ const Auth = ({ setIsAuthenticated, isSignIn, className, ...props }) => {
   return (
     <Popup
       Button={
-        <button className={className}>{isSignIn ? "SignIn" : "Register"}</button>
+        <button className={className}>
+          {isSignIn ? "SignIn" : "Register"}
+        </button>
       }
       Modal={AuthModal}
       setIsAuthenticated={setIsAuthenticated}

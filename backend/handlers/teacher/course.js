@@ -116,7 +116,9 @@ const getCourse = async (req, res) => {
       .populate("registeredStudents", "name email vaccinationStatus -_id");
 
     // Get all assignments in the course
-    const assignments = await db.Assignment.find({ course: req.params.courseId });
+    const assignments = await db.Assignment.find({
+      course: req.params.courseId,
+    });
 
     res.status(200).json({
       course: { ...course._doc, recentLectures, activeLectures, assignments },

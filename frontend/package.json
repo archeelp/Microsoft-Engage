@@ -30,7 +30,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "eject": "react-scripts eject",
     "format": "pretty-quick --staged",
     "format-check": "prettier --check .",

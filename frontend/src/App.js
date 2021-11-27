@@ -51,54 +51,31 @@ const App = () => {
             }
           />
         </Routes>
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route
               path="/schedule"
               exact
-              element={
-                isAuthenticated ? 
-                <Schedule />
-                : <Navigate to="/" />
-              }
+              element={isAuthenticated ? <Schedule /> : <Navigate to="/" />}
             />
             <Route
               path="/profile"
               exact
-              element={
-                isAuthenticated ? 
-                <Profile />
-                : <Navigate to="/" />
-              }
+              element={isAuthenticated ? <Profile /> : <Navigate to="/" />}
             />
             <Route
               path="/course"
               exact
-              element={
-                isAuthenticated ? 
-                <Courses />
-                : <Navigate to="/" />
-              }
+              element={isAuthenticated ? <Courses /> : <Navigate to="/" />}
             />
-            <Route path="/course/join/:courseId" element={
-                <JoinCourse />
-              }
-            />
+            <Route path="/course/join/:courseId" element={<JoinCourse />} />
             <Route
               path="/course/:courseId"
-              element={
-                isAuthenticated ? 
-                <Course />
-                : <Navigate to="/" />
-              }
+              element={isAuthenticated ? <Course /> : <Navigate to="/" />}
             />
             <Route
               path="/course/:courseId/assignment/:assignmentId"
-              element={
-                isAuthenticated? 
-                <Submission />
-                : <Navigate to="/" />
-              }
+              element={isAuthenticated ? <Submission /> : <Navigate to="/" />}
             />
           </Routes>
         </Suspense>
