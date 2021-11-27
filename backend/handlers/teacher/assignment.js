@@ -12,12 +12,10 @@ const createAssignment = async (req, res) => {
       name,
       course: req.params.courseId,
     });
-    res
-      .status(200)
-      .json({
-        assignment: assignment,
-        message: "Assignment Created Successfully",
-      });
+    res.status(200).json({
+      assignment: assignment,
+      message: "Assignment Created Successfully",
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: error.message });
@@ -34,12 +32,10 @@ const getAssignment = async (req, res) => {
         path: "student",
       },
     });
-    res
-      .status(200)
-      .json({
-        assignment: assignment,
-        message: "Assignment Fetched Successfully",
-      });
+    res.status(200).json({
+      assignment: assignment,
+      message: "Assignment Fetched Successfully",
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: error.message });

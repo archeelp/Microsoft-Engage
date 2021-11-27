@@ -9,13 +9,11 @@ const getAssignment = async (req, res) => {
       student: req.decodedToken.id,
       assignment: req.params.assignmentId,
     });
-    res
-      .status(200)
-      .json({
-        assignment,
-        submission,
-        message: "Assignment Fetched Successfully",
-      });
+    res.status(200).json({
+      assignment,
+      submission,
+      message: "Assignment Fetched Successfully",
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: error.message });
