@@ -181,15 +181,11 @@ _Follow the below instructions to clone the repo and start the backend and front
    ```sh
    npm install
    ```
-9. Change the backend server URL in `frontend/src/constants.js`
-   ```js
-   export const baseURL = "http://localhost:4000";
-   ```
-10. Start the frontend server
+9. Start the frontend server
     ```sh
     npm run start
     ```
-11. Both backend and frontend servers are up and running, you can view your website on [http://localhost:3000](http://localhost:3000)
+10. Both backend and frontend servers are up and running, you can view your website on [http://localhost:3000](http://localhost:3000)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
