@@ -19,12 +19,16 @@ const Home = ({ isAuthenticated, setIsAuthenticated }) => {
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
             An Online Classroom Portal
           </h1>
-          <p className="mb-8 leading-relaxed text-gray-600">
-            Learning Redefined... <br />A functional prototype of a platform
-            that gives students an array of digital academic and social tools to
-            stay engaged with their studies, peers and broader university
-            community during pandemic.
-          </p>
+          <div className="mb-2 leading-relaxed text-gray-600">
+            <div className="text-indigo-500 font-bold">
+              Learning Redefined . . .
+            </div>
+            <div className="text-gray-600 font-normal">
+              A functional prototype of a platform that gives students an array
+              of digital academic and social tools to stay engaged with their
+              studies, peers and broader university community during pandemic.
+            </div>
+          </div>
           <div className="flex w-full md:justify-start justify-center items-end">
             {!isAuthenticated ? (
               <>
@@ -42,7 +46,7 @@ const Home = ({ isAuthenticated, setIsAuthenticated }) => {
             ) : (
               <Link
                 to="/course"
-                className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                className="inline-flex text-white bg-indigo-600 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-700 rounded text-lg"
               >
                 Get Started
               </Link>

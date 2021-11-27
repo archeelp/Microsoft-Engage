@@ -43,7 +43,7 @@ const Course = () => {
     <Loader />
   ) : (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto flex flex-wrap flex-col">
+      <div className="container px-5 py-10 mx-auto flex flex-wrap flex-col">
         <div className="flex mx-auto flex-wrap mb-20">
           <button
             onClick={() => setCurrentlyAt("description")}

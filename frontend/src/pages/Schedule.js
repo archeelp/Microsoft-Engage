@@ -36,7 +36,7 @@ const Schedule = () => {
     <Loader />
   ) : (
     <section className="text-gray-600 body-font mx-10">
-      <div className="container px-5 py-24 mx-auto flex flex-wrap">
+      <div className="container px-5 py-10 mx-auto flex flex-wrap">
         <div className="flex flex-wrap w-full">
           <div className="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
             {schedule.length === 0 && (
