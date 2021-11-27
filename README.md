@@ -289,7 +289,7 @@ _For getting started with project, please refer to the [Installation](#installat
 ![Assignment](images/teacher/createAssignment2.png)
 
 ### View Submissions
-![Assignment](images/teacher/submission.png)
+![Assignment](images/teacher/submissions.png)
 
 ### View Submission and view/change Grade
 ![Assignment](images/teacher/submission1.png)
