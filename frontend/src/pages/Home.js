@@ -20,7 +20,7 @@ const Home = ({ isAuthenticated, setIsAuthenticated }) => {
             An Online Classroom Portal
           </h1>
           <div className="mb-2 leading-relaxed text-gray-600">
-            <div className="text-indigo-500 font-bold">
+            <div className="text-indigo-600 font-bold">
               Learning Redefined . . .
             </div>
             <div className="text-gray-600 font-normal">
