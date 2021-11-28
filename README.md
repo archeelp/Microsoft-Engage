@@ -124,6 +124,21 @@ Features:
 	<a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40" /> </a>
 </p>
 
+- Node.js
+- Express
+- MongoDB
+- React
+- Tailwind CSS
+- HTML5
+- CSS3
+- JavaScript
+- Babel
+- Git
+- Heroku
+- Netlify
+- Docker
+- Hacker Earth
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -383,6 +398,7 @@ Project Link: [https://github.com/archeelp/MicrosoftEngage](https://github.com/a
 - [Img Shields](https://shields.io)
 - [Heroku](https://www.heroku.com)
 - [Netlify](https://www.netlify.com)
+- [Hacker Earth](https://hackerearth.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
