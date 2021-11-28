@@ -39,7 +39,7 @@
     <br />
     <a href="https://microsoft-engage-2021.ml/"><strong>View deployed website »</strong></a>
     <br />
-    <a href="https://github.com/archeelp/MicrosoftEngage">View Video Demo</a>
+    <a href="https://drive.google.com/file/d/1sLLmf00p_F8bV-EV9Lnt1lgmTOn-19mZ/view?usp=sharing">View Video Demo</a>
     ·
     <a href="https://github.com/archeelp/MicrosoftEngage/issues">Report Bug</a>
     ·
