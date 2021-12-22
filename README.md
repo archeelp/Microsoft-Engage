@@ -37,7 +37,7 @@
     <br />
     <a href="https://microsoft-engage-2021.herokuapp.com/documentation"><strong>Explore the backend API docs »</strong></a>
     <br />
-    <a href="https://microsoft-engage-2021.ml/"><strong>View deployed website »</strong></a>
+    <a href="https://agitated-meninsky-1ac119.netlify.app/"><strong>View deployed website »</strong></a>
     <br />
     <a href="https://drive.google.com/file/d/1sLLmf00p_F8bV-EV9Lnt1lgmTOn-19mZ/view?usp=sharing">View Video Demo</a>
     ·
