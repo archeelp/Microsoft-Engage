@@ -3,7 +3,7 @@ export const baseURL =
     ? "http://localhost:4000"
     : "https://microsoft-engage-2021.herokuapp.com";
 
-export const publicURL = "https://microsoft-engage-2021.ml";
+export const publicURL = "https://agitated-meninsky-1ac119.netlify.app";
 
 export const languages = [
   { key: "C", value: "C" },
